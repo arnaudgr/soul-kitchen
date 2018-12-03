@@ -10,26 +10,8 @@
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
      
-    <%= javascript_include_tag 'jquery/jquery-2.2.4.min.js' %>
-    <!-- Popper js -->
-    <%= javascript_include_tag 'bootstrap/popper.min.js' %>
-    <!-- Bootstrap js -->
-    <%= javascript_include_tag 'bootstrap/bootstrap.min.js' %>
-    <!-- Plugins js -->
-     <%= javascript_include_tag 'plugins/plugins.js' %>
-    <!-- Active js -->
-     <%= javascript_include_tag 'active.js' %>
 
-      <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
    
 
 </head>
@@ -41,7 +23,22 @@
 
   </head>
 
+      <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico">
+
+    <!-- Core Stylesheet -->
+
   <body>
+     <div id="preloader">
+        <i class="circle-preloader"></i>
+        <img src="img/core-img/salad.png" alt="">
+    </div>
     
 
        <%= render 'layouts/navbar'  %>
@@ -49,12 +46,24 @@
 
     <%= render 'layouts/footer'  %>
 
-
+ <!-- MODAL à activer en attente de DEVISE
+       render "modal/myModalSignUp" 
+            render "modal/myModal" 
+-->
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     
     
 
+    <%= javascript_include_tag 'jquery/jquery-2.2.4.min.js' %>
+    <!-- Popper js -->
+    <%= javascript_include_tag 'bootstrap/popper.min.js' %>
+    <!-- Bootstrap js -->
+    <%= javascript_include_tag 'bootstrap/bootstrap.min.js' %>
+    <!-- Plugins js -->
+     <%= javascript_include_tag 'plugins/plugins.js' %>
+    <!-- Active js -->
+     <%= javascript_include_tag 'active.js' %>
   </body>
 </html>

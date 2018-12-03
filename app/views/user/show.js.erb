@@ -1,0 +1,11 @@
+$(document).ready(function(){
+	$('.emailcontent').hide(); // permet de chacher les div
+	$('.read').css({'color' : 'grey', 'background-color': 'whitesmoke'}); //// définit tous les onglets de lecture à la même couleur d'arrière-plan / texte
+	$('#mail_<%=@email.id%>').slideDown(); // met en place anim
+
+	
+	$('#object_<%=@email.id%> a').css({'color' : 'blue', 'font-weight':'normal'}); //définit le lien sur non-gras et gris quand "lu"
+	$('#object_<%=@email.id%>').css({'background-color' : 'lightgrey', 'color':'grey'}); // définit la couleur backgroujnf pour lien selectionné
+	$('#object_<%=@email.id%>').attr('class','read'); // donne à la tab l'état de "lu"
+		
+});
