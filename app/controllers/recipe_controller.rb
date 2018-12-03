@@ -1,6 +1,6 @@
 class RecipeController < ApplicationController
   def index
-
+=begin
   	response = HTTParty.post('https://gateway-syd.watsonplatform.net/text-to-speech/api', 
     :header => { 
         :things => [{myid: 1}, {id: 2}, {id: 3}],
@@ -19,5 +19,6 @@ class RecipeController < ApplicationController
 )
 
   	puts response
+=end
   end
 end
