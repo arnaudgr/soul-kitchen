@@ -1,0 +1,11 @@
+ <%= form_for @user, url: {action: "create"} do |form| %>
+    <div class="field">
+      <%= form.label :username, "Ton nom d'utilisateur" %>
+      <%= form.text_field :username %>
+    </div>
+    
+   <%= form.fields_for :category do |builder| %>
+        <%= builder.label :category, "ton régime alimentaire" %>
+        <%= builder.select(:category, @categories.collect {|u| [u.name]}, prompt: 'Select') %>
+    <% end %>
+ <% end %>
