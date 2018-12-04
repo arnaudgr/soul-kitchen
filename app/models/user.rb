@@ -21,4 +21,5 @@ class User < ApplicationRecord
 
   # has_many :categories, optional: true
   belongs_to :week, optional: true
+  has_many :categories, through: :user_categorie_recipe
 end

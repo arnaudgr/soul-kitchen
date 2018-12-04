@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
 	root "recipe#index"
 	resources :recipe
+	resources :user
 
   devise_for :users
 
