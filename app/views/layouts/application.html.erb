@@ -37,19 +37,20 @@
   <body>
      <div id="preloader">
         <i class="circle-preloader"></i>
-        <img src="img/core-img/salad.png" alt="">
+        <%= image_tag ('salad.png') %>
     </div>
     
 
        <%= render 'layouts/navbar'  %>
+       <%= render 'layouts/search'  %>
      <%= yield %>
 
     <%= render 'layouts/footer'  %>
 
- <!-- MODAL à activer en attente de DEVISE
-       render "modal/myModalSignUp" 
-            render "modal/myModal" 
--->
+      <!--
+       render "modal/myModalSignUp"  
+            render "modal/myModal" -->
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
