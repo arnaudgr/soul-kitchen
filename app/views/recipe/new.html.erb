@@ -1,0 +1,108 @@
+
+  <%= form_for @recipe, url: {action: "create"} do |form| %>
+    <div class="field">
+      <%= form.label :title, 'Titre' %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_1, "Étape 1" %>
+      <%= form.text_field :step_1 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_2, "Étape 2" %>
+      <%= form.text_field :step_2 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_3, "Étape 3" %>
+      <%= form.text_field :step_3 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_4, "Étape 4" %>
+      <%= form.text_field :step_4 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_5, "Étape 5" %>
+      <%= form.text_field :step_5 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_6, "Étape 6" %>
+      <%= form.text_field :step_6 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_7, "Étape 7" %>
+      <%= form.text_field :step_7 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_8, "Étape 8" %>
+      <%= form.text_field :step_8 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_9, "Étape 9" %>
+      <%= form.text_field :step_9 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_10, "Étape 10" %>
+      <%= form.text_field :step_10 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_11, "Étape 11" %>
+      <%= form.text_field :step_11 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_12, "Étape 12" %>
+      <%= form.text_field :step_12 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_13, "Étape 13" %>
+      <%= form.text_field :step_13 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_14, "Étape 14" %>
+      <%= form.text_field :step_14 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :step_15, "Étape 15" %>
+      <%= form.text_field :step_15 %>
+    </div>
+
+    <div class="field">
+      <%= form.fields_for :recingredient do |builder| %>
+        <%= builder.label :quantity, "Quantité" %>
+        <%= builder.text_field :quantity %>
+      <% end %>
+      <%= form.fields_for :ingredient do |builder| %>
+        <%= builder.label :ingredient, "Ingrédient" %>
+        <%= builder.select(:name, @ingredients.collect {|u| [u.name]}, prompt: 'Select') %>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :time, 'Temps' %>
+      <%= form.number_field :time %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit%>
+    </div>
+
+  <% end %>
