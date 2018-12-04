@@ -1,7 +1,6 @@
 <header>
 
-                        <script type="text/javascript"> $(function ()
-    {                       $("#myModal").modal({show:false })}); </script>
+ 
 
 
 
@@ -44,7 +43,7 @@
                     <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+                        <a class="nav-brand" href="index.html"> <%= image_tag('recipe.png') %></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -134,26 +133,18 @@
                                 -->
                                     <li><a href="receipe-post.html">Profil </a></li>
                                     <li><a href="receipe-post.html"> Ma Semaine en Recettes </a></li>
-                                    <li><a href="receipe-post.html">Log </a></li>
+                                    
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
 
                                 <!-- Newsletter Form -->
-                                <div class="search-btn">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
-
-                                    <% if user_signed_in? %>
-                            <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn amado-btn mb-15' %>
-            <% else %>
-                            <%= link_to "Login", "#login", "data-toggle" => "modal", :class => 'btn amado-btn mb-15' %>
-                            <%= link_to "Sign up", "#sign_up", "data-toggle" => "modal", :class => 'btn amado-btn mb-15' %>
-                        <% end %>
+                               
+                                 
 
 
                                 <div class="dropdown">
    
-                                        <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="50px" width="50px" src="http://digitalspyuk.cdnds.net/17/25/320x320/square-1498216547-avatar-neytiri.jpg">
+                                        <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>>
 
  
 
