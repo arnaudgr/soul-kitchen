@@ -1,8 +1,14 @@
+<div class="form_width">
+  <div class="contact-form-area">
+  <div class="col-12">
+
+  <div class="card">
+
 <h2>Inscription</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<div class="contact-form-area">
   <div class="field">
     <%= f.label :username, 'Pseudo' %><br />
     <%= f.text_field :username %>
@@ -32,3 +38,9 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>
+
