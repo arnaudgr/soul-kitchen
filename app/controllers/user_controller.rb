@@ -1,5 +1,6 @@
 class UserController < ApplicationController
 
+	after_create :send_welcome_email
 
 	def index
 
@@ -15,4 +16,10 @@ class UserController < ApplicationController
 		puts params
 
 	end
+
+	private
+
+  	def send_welcome_email
+    	ContactMailer.welcome(self).deliver.now
+    end
 end
