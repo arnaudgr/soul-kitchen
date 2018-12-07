@@ -3,7 +3,7 @@ class CreateRecingredients < ActiveRecord::Migration[5.2]
     create_table :recingredients do |t|
       t.belongs_to :recipe
       t.belongs_to :ingredient
-      t.integer :quantity
+      t.string :quantity
       t.string :unit
       t.timestamps
     end
