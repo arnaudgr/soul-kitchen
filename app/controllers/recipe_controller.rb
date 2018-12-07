@@ -23,10 +23,33 @@ class RecipeController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = Recipe.create
     @ingredient = Ingredient.new
     @ingredients = Ingredient.all
     @recingredient = Recingredient.new
+  end
+
+  def add_ingredient
+    puts params.inspect
+
+    params.permit(:name, :quantity)
+    ing = Ingredient.find_by(name: params[:name])
+    @recingredient = Recingredient.new
+    @recingredient.recipe_id = Recipe.last.id
+    @recingredient.ingredient_id = ing.id
+    @recingredient.quantity = params[:quantity]
+    @recipe = Recipe.last
+    if @recingredient.save
+      respond_to do |format|
+        format.js 
+      end
+    end
+
+    @ingr = []
+    Recingredient.where(recipe_id: @recingredient.recipe_id).each do |recin|
+      @ingr << Ingredient.find(recin.ingredient_id).name
+    end
+    @ingr
   end
 
   def create
@@ -51,18 +74,16 @@ class RecipeController < ApplicationController
     @recipe.step_15 = params[:recipe][:step_15]
     @recipe.time = params[:recipe][:time]
     @recipe.image_url = params[:recipe][:image_url]
-    @recipe.save
-    @recingredient = Recingredient.new
-    @recingredient.recipe_id = @recipe[:id]
-    ing = Ingredient.find_by(name: params[:recipe][:ingredient][:name])
-    @recingredient.ingredient_id = ing.id
-    @recingredient.quantity = params[:recipe][:recingredient][:quantity]
-    @recingredient.save
+    @recipe.save 
+     
     redirect_to new_recipe_path
   end
 
-   def recipe_params
-      params.require(:recipe).permit(:title, :step_1, :step_2,  :step_3, :step_4, :step_5, :step_6, :step_7, :step_8, :step_9, :step_10, :step_11, :step_12, :step_13, :step_14, :step_15, :time, :image_url, ingredient_attributes: [:name], recingredient_attributes: [:quantity])
-   end
+  private
+
+    def recipe_params
+      params.require(:recipe).permit(:title, :step_1, :step_2,  :step_3, :step_4, :step_5, :step_6, :step_7, :step_8, :step_9, :step_10, :step_11, :step_12, :step_13, :step_14, :step_15,
+        :time, :image_url)
+    end
 
 end

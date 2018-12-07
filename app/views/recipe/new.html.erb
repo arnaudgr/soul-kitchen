@@ -1,108 +1,205 @@
 
-  <%= form_for @recipe, url: {action: "create"} do |form| %>
-    <div class="field">
-      <%= form.label :title, 'Titre' %>
-      <%= form.text_field :title %>
+
+
+<div class="contact-area section-padding-0-80">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading">
+          <h3>Crée ta Recette</h3>
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :step_1, "Étape 1" %>
-      <%= form.text_field :step_1 %>
+
+
+    <div class="row">
+      <div class="col-12">
+        <div class="contact-form-area">
+          <%= form_for @recipe, url: {action: "create"} do |form| %>
+            <div class="row">
+              <div class="col-12 col-lg-9">
+                <%= form.label :title, 'Titre' %>
+                <%= form.text_field :title, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_1, "Étape 1" %>
+                <%= form.text_field :step_1, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_2, "Étape 2" %>
+                <%= form.text_field :step_2, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_3, "Étape 3" %>
+                <%= form.text_field :step_3, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_4, "Étape 4" %>
+                <%= form.text_field :step_4, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_5, "Étape 5" %>
+                <%= form.text_field :step_5, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_6, "Étape 6" %>
+                <%= form.text_field :step_6, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_7, "Étape 7" %>
+                <%= form.text_field :step_7, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_8, "Étape 8" %>
+                <%= form.text_field :step_8, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_9, "Étape 9" %>
+                <%= form.text_field :step_9, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_10, "Étape 10" %>
+                <%= form.text_field :step_10, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_11, "Étape 11" %>
+                <%= form.text_field :step_11, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_12, "Étape 12" %>
+                <%= form.text_field :step_12, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_13, "Étape 13" %>
+                <%= form.text_field :step_13, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_14, "Étape 14" %>
+                <%= form.text_field :step_14, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12">
+                <%= form.label :step_15, "Étape 15" %>
+                <%= form.text_field :step_15, class: 'form-control', id: 'name' %>
+              </div>
+
+              <!-- LISTE INGREDIENTS -->
+
+              <div class="col-12">
+                Mes ingrédients
+                <div id="list-ing">
+                </div>
+              </div>
+
+
+             <!-- AJOUT AJAX INGREDIENT -->
+
+              <div class ="col-12" id="form-ing">
+                <input type="text" id="quantity" class="form-control col-5" placeholder="Quantité" />
+                <select id="namevrai" class="col-5">
+                  <% Ingredient.all.each do |u| %>
+                    <option id="namevrai"> <%= u.name %> </option>
+                  <% end %>
+                </select>
+                <span class="btn delicious-btn col-2" id="add-ingredient" remote=true>Ajouter ingrédient</span>
+              </div>
+
+            <!-- REPRISE PRMIÉ TEST -->
+
+              <div class="col-12 col-lg-4">
+                <%= form.label :time, 'Temps (en mn)' %>
+                <%= form.number_field :time, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12 col-lg-8">
+                <%= form.label :image_url, "Image (ajoute l'url public d'une image)" %>
+                <%= form.text_field :image_url, class: 'form-control', id: 'name' %>
+              </div>
+
+              <div class="col-12 text-center">
+                <%= form.submit "Créer ma Recette", class: "btn delicious-btn mt-30" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :step_2, "Étape 2" %>
-      <%= form.text_field :step_2 %>
+  </div>
+</div>
+
+<div class="duplicate">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <input class="form-control" type="text"
+         name="contribution[item_name]">
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :step_3, "Étape 3" %>
-      <%= form.text_field :step_3 %>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="item_quantity">Number of items</label>
+        <input min="1" class="form-control"
+        type="number" value="1"
+        name="contribution[item_quantity]">
+      </div>
     </div>
 
-    <div class="field">
-      <%= form.label :step_4, "Étape 4" %>
-      <%= form.text_field :step_4 %>
-    </div>
+     <div class="col-md-4">
+       <div class="form-group">
+         <label for="contribution[item_type]">Category</label>
+           <select class="form-control"
+           name="contribution[item_type]">
+             <option value="1">Entrée</option>
+             <option value="2">Plat</option>
+             <option value="3">Dessert</option>
+             <option value="4">Softs</option>
+             <option value="5">Alcool</option>
+             <option value="6">Autres</option>
+           </select>
+       </div>
+          <a href="#" class="button-remove" remote="true">
+            Remove item
+          </a>
+     </div>
+   </div>
+ </div>
 
-    <div class="field">
-      <%= form.label :step_5, "Étape 5" %>
-      <%= form.text_field :step_5 %>
-    </div>
+<button class="btn-add">
+  Add new row
+</button>
 
-    <div class="field">
-      <%= form.label :step_6, "Étape 6" %>
-      <%= form.text_field :step_6 %>
-    </div>
+              <script>
+                $(document).ready(function() {
+                $('#add-ingredient').on('click', function() {
+                    var base_url = "/recipe/add_ing"
+                    var quantity = $('#quantity').val()
+                    var namevrai = $('#namevrai').val()
+                    var data = {}
+                    data.ingname = "test"
+                    data.quantity = quantity
 
-    <div class="field">
-      <%= form.label :step_7, "Étape 7" %>
-      <%= form.text_field :step_7 %>
-    </div>
+                    var url = base_url+'/'+quantity+'/'+namevrai
 
-    <div class="field">
-      <%= form.label :step_8, "Étape 8" %>
-      <%= form.text_field :step_8 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_9, "Étape 9" %>
-      <%= form.text_field :step_9 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_10, "Étape 10" %>
-      <%= form.text_field :step_10 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_11, "Étape 11" %>
-      <%= form.text_field :step_11 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_12, "Étape 12" %>
-      <%= form.text_field :step_12 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_13, "Étape 13" %>
-      <%= form.text_field :step_13 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_14, "Étape 14" %>
-      <%= form.text_field :step_14 %>
-    </div>
-
-    <div class="field">
-      <%= form.label :step_15, "Étape 15" %>
-      <%= form.text_field :step_15 %>
-    </div>
-
-    <div class="field">
-      <%= form.fields_for :recingredient do |builder| %>
-        <%= builder.label :quantity, "Quantité" %>
-        <%= builder.text_field :quantity %>
-      <% end %>
-      <%= form.fields_for :ingredient do |builder| %>
-        <%= builder.label :ingredient, "Ingrédient" %>
-        <%= builder.select(:name, @ingredients.collect {|u| [u.name]}, prompt: 'Select') %>
-      <% end %>
-    </div>
-
-    <div class="field">
-      <%= form.label :time, 'Temps' %>
-      <%= form.number_field :time %>
-    </div>
-
-    <div class="field">
-      <%= form.label :image_url %>
-      <%= form.text_field :image_url %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit%>
-    </div>
-
-  <% end %>
+                    $.get(url, function(data) {
+                      console.log(data);
+                    });
+                });
+              });
+              </script>

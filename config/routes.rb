@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 	root "recipe#index"
+	# put '/recipe/new/:id', to: 'recipe#add_ingredient'
+	get '/recipe/add_ing/:quantity/:name', to: 'recipe#add_ingredient'
 	resources :recipe
 	resources :user
 
