@@ -34,11 +34,11 @@ class RecipeController < ApplicationController
 
     params.permit(:name, :quantity)
     ing = Ingredient.find_by(name: params[:name])
+    @recipe = Recipe.last
     @recingredient = Recingredient.new
-    @recingredient.recipe_id = Recipe.last.id
+    @recingredient.recipe_id = @recipe.id
     @recingredient.ingredient_id = ing.id
     @recingredient.quantity = params[:quantity]
-    @recipe = Recipe.last
     if @recingredient.save
       respond_to do |format|
         format.js 
@@ -52,31 +52,32 @@ class RecipeController < ApplicationController
     @ingr
   end
 
-  def create
+  def realcreate
     puts 'PARAAAAMMMMSSSS RECIPE CONTROLLER'
     puts params
-    @recipe = Recipe.new
-    @recipe.title = params[:recipe][:title]
-    @recipe.step_1 = params[:recipe][:step_1]
-    @recipe.step_2 = params[:recipe][:step_2]
-    @recipe.step_3 = params[:recipe][:step_3]
-    @recipe.step_4 = params[:recipe][:step_4]
-    @recipe.step_5 = params[:recipe][:step_5]
-    @recipe.step_6 = params[:recipe][:step_6]
-    @recipe.step_7 = params[:recipe][:step_7]
-    @recipe.step_8 = params[:recipe][:step_8]
-    @recipe.step_9 = params[:recipe][:step_9]
-    @recipe.step_10 = params[:recipe][:step_10]
-    @recipe.step_11 = params[:recipe][:step_11]
-    @recipe.step_12 = params[:recipe][:step_12]
-    @recipe.step_13 = params[:recipe][:step_13]
-    @recipe.step_14 = params[:recipe][:step_14]
-    @recipe.step_15 = params[:recipe][:step_15]
-    @recipe.time = params[:recipe][:time]
-    @recipe.image_url = params[:recipe][:image_url]
+    @recipe = Recipe.last
+    @recipe.update(title: params[:recipe][:title])
+    @recipe.update(step_1: params[:recipe][:step_1])
+    @recipe.update(step_2: params[:recipe][:step_2])
+    @recipe.update(step_3: params[:recipe][:step_3])
+    @recipe.update(step_4: params[:recipe][:step_4])
+    @recipe.update(step_5: params[:recipe][:step_5])
+    @recipe.update(step_6: params[:recipe][:step_6])
+    @recipe.update(step_7: params[:recipe][:step_7])
+    @recipe.update(step_8: params[:recipe][:step_8])
+    @recipe.update(step_9: params[:recipe][:step_9])
+    @recipe.update(step_10: params[:recipe][:step_10])
+    @recipe.update(step_11: params[:recipe][:step_11])
+    @recipe.update(step_12: params[:recipe][:step_12])
+    @recipe.update(step_13: params[:recipe][:step_13])
+    @recipe.update(step_14: params[:recipe][:step_14])
+    @recipe.update(step_15: params[:recipe][:step_15])
+    @recipe.update(time: params[:recipe][:time])
+    @recipe.update(image_url: params[:recipe][:image_url])
     @recipe.save 
      
-    redirect_to new_recipe_path
+    redirect_to root_path
+    flash[:notice] = "Votre recette a bien été créé"
   end
 
   private

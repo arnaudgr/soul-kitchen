@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-12">
         <div class="contact-form-area">
-          <%= form_for @recipe, url: {action: "create"} do |form| %>
+          <%= form_for @recipe, :url => {:controller => :recipe, action: :realcreate} do |form| %>
             <div class="row">
               <div class="col-12 col-lg-9">
                 <%= form.label :title, 'Titre' %>
@@ -119,7 +119,7 @@
                 <span class="btn delicious-btn col-2" id="add-ingredient" remote=true>Ajouter ingrédient</span>
               </div>
 
-            <!-- REPRISE PRMIÉ TEST -->
+              <!-- REPRISE PRMIÉ TEST -->
 
               <div class="col-12 col-lg-4">
                 <%= form.label :time, 'Temps (en mn)' %>
@@ -143,63 +143,20 @@
   </div>
 </div>
 
-<div class="duplicate">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="form-group">
-        <input class="form-control" type="text"
-         name="contribution[item_name]">
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="form-group">
-        <label for="item_quantity">Number of items</label>
-        <input min="1" class="form-control"
-        type="number" value="1"
-        name="contribution[item_quantity]">
-      </div>
-    </div>
-
-     <div class="col-md-4">
-       <div class="form-group">
-         <label for="contribution[item_type]">Category</label>
-           <select class="form-control"
-           name="contribution[item_type]">
-             <option value="1">Entrée</option>
-             <option value="2">Plat</option>
-             <option value="3">Dessert</option>
-             <option value="4">Softs</option>
-             <option value="5">Alcool</option>
-             <option value="6">Autres</option>
-           </select>
-       </div>
-          <a href="#" class="button-remove" remote="true">
-            Remove item
-          </a>
-     </div>
-   </div>
- </div>
-
-<button class="btn-add">
-  Add new row
-</button>
-
-              <script>
-                $(document).ready(function() {
-                $('#add-ingredient').on('click', function() {
-                    var base_url = "/recipe/add_ing"
-                    var quantity = $('#quantity').val()
-                    var namevrai = $('#namevrai').val()
-                    var data = {}
-                    data.ingname = "test"
-                    data.quantity = quantity
-
-                    var url = base_url+'/'+quantity+'/'+namevrai
-
-                    $.get(url, function(data) {
-                      console.log(data);
-                    });
-                });
-              });
-              </script>
+<script>
+  $(document).ready(function() {
+  $('#add-ingredient').on('click', function() {
+  var base_url = "/recipe/add_ing"
+  var quantity = $('#quantity').val()
+  var namevrai = $('#namevrai').val()
+  var data = {}
+  data.ingname = "test"
+  data.quantity = quantity
+  var url = base_url+'/'+quantity+'/'+namevrai
+  
+  $.get(url, function(data) {
+  console.log(data);
+    });
+    });
+  });
+</script>
