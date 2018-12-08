@@ -4,7 +4,6 @@ class CreateRecingredients < ActiveRecord::Migration[5.2]
       t.belongs_to :recipe
       t.belongs_to :ingredient
       t.string :quantity
-      t.string :unit
       t.timestamps
     end
   end
