@@ -1,6 +1,3 @@
-
-
-
 <div class="contact-area section-padding-0-80">
   <div class="container">
     <div class="row">
@@ -11,7 +8,7 @@
       </div>
     </div>
 
-
+<!-- FORMULAIRE CREATION RECETTE -->
 
     <div class="row">
       <div class="col-12">
@@ -23,79 +20,19 @@
                 <%= form.text_field :title, class: 'form-control', id: 'name' %>
               </div>
 
-              <div class="col-12">
-                <%= form.label :step_1, "Étape 1" %>
-                <%= form.text_field :step_1, class: 'form-control', id: 'name' %>
-              </div>
+              <!-- LISTE ETAPES -->
 
               <div class="col-12">
-                <%= form.label :step_2, "Étape 2" %>
-                <%= form.text_field :step_2, class: 'form-control', id: 'name' %>
+                Mes étapes
+                <div id="list-step">
+                </div>
               </div>
 
-              <div class="col-12">
-                <%= form.label :step_3, "Étape 3" %>
-                <%= form.text_field :step_3, class: 'form-control', id: 'name' %>
-              </div>
+              <!-- AJOUT ÉTAPES -->
 
-              <div class="col-12">
-                <%= form.label :step_4, "Étape 4" %>
-                <%= form.text_field :step_4, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_5, "Étape 5" %>
-                <%= form.text_field :step_5, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_6, "Étape 6" %>
-                <%= form.text_field :step_6, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_7, "Étape 7" %>
-                <%= form.text_field :step_7, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_8, "Étape 8" %>
-                <%= form.text_field :step_8, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_9, "Étape 9" %>
-                <%= form.text_field :step_9, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_10, "Étape 10" %>
-                <%= form.text_field :step_10, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_11, "Étape 11" %>
-                <%= form.text_field :step_11, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_12, "Étape 12" %>
-                <%= form.text_field :step_12, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_13, "Étape 13" %>
-                <%= form.text_field :step_13, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_14, "Étape 14" %>
-                <%= form.text_field :step_14, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12">
-                <%= form.label :step_15, "Étape 15" %>
-                <%= form.text_field :step_15, class: 'form-control', id: 'name' %>
+              <div class ="col-12" id="form-step">
+                <input type="text" id="description" class="form-control col-12" placeholder="Description de l'étape" />
+                <span class="btn delicious-btn col-2" id="add-step" remote=true>Ajouter une étape</span>
               </div>
 
               <!-- LISTE INGREDIENTS -->
@@ -119,7 +56,7 @@
                 <span class="btn delicious-btn col-2" id="add-ingredient" remote=true>Ajouter ingrédient</span>
               </div>
 
-              <!-- REPRISE PRMIÉ TEST -->
+              <!-- REPRISE FORM RECIPE -->
 
               <div class="col-12 col-lg-4">
                 <%= form.label :time, 'Temps (en mn)' %>
@@ -143,20 +80,25 @@
   </div>
 </div>
 
-<script>
+<script>  
+  $(document).ready(function() {
+  $('#add-step').on('click', function() {
+  var base_url = "/recipe/add_step"
+  var description = $('#description').val()
+  var url = base_url+'/'+description
+  
+  $.get(url);
+    });
+  });
+
   $(document).ready(function() {
   $('#add-ingredient').on('click', function() {
   var base_url = "/recipe/add_ing"
   var quantity = $('#quantity').val()
   var namevrai = $('#namevrai').val()
-  var data = {}
-  data.ingname = "test"
-  data.quantity = quantity
   var url = base_url+'/'+quantity+'/'+namevrai
   
-  $.get(url, function(data) {
-  console.log(data);
-    });
+  $.get(url);
     });
   });
 </script>
