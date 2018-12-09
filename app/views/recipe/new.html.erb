@@ -79,26 +79,3 @@
 
   </div>
 </div>
-
-<script>  
-  $(document).ready(function() {
-  $('#add-step').on('click', function() {
-  var base_url = "/recipe/add_step"
-  var description = $('#description').val()
-  var url = base_url+'/'+description
-  
-  $.get(url);
-    });
-  });
-
-  $(document).ready(function() {
-  $('#add-ingredient').on('click', function() {
-  var base_url = "/recipe/add_ing"
-  var quantity = $('#quantity').val()
-  var namevrai = $('#namevrai').val()
-  var url = base_url+'/'+quantity+'/'+namevrai
-  
-  $.get(url);
-    });
-  });
-</script>

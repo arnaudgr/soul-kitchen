@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-	after_create :send_welcome_email
+	# after_create :send_welcome_email
 
 	def index
 

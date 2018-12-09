@@ -30,8 +30,6 @@ class RecipeController < ApplicationController
   end
 
   def add_step
-    puts 'PARAMS ADD STEP'
-    puts params
     @recipe = Recipe.last
     @step = Step.new
     @step.recipe_id = @recipe.id
