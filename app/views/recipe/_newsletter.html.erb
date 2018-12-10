@@ -4,12 +4,23 @@
                     <div class="newsletter-area">
                         <h4>Inscrivez-vous à notre newsletter</h4>
                         <!-- Form -->
-                        <div class="newsletter-form bg-img bg-overlay" style="background-image: url(img/bg-img/bg1.jpg);">
-                            <form action="#" method="post">
-                                <input type="email" name="email" placeholder="Votre email">
-                                <button type="submit" class="btn delicious-btn w-100">S'inscrire</button>
-                            </form>
-                            <p>Fusce nec ante vitae lacus aliquet vulputate. Donec sceleri sque accumsan molestie. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia.</p>
+                        <div class="newsletter-form bg-img bg-overlay" style="background-image: url(<%= asset_path 'bg4.jpg'%>);">
+                            
+                            <!--
+                           form_for @user do |f| 
+
+                            f.email_field :email, placeholder: "e-mail" 
+                            
+                            f.submit class:"btn delicious-btn w-100" %>S'inscrire</ -->
+                             
+                            
+                            <p> Pour se tenir au courant de nos dernières recette & actualités fumantes ! </p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-4">
+                    <div class="delicious-add">
+                        <%=image_tag ('insta2.jpg') %>
                     </div>
                 </div>

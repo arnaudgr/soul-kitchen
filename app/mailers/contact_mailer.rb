@@ -6,12 +6,8 @@ class ContactMailer < ApplicationMailer
  	  mail(to: @user.email, subject: "Bienvenue chez Soul Kitchen")
  	end
 
-=begin A BOSSER SI TEMPS LE PERMET
- 	def recipe (user, recipe)
-      @user = user
-      @recipe = recipe
-    
-	  mail( to: @user.email, subject: "Retrouvez votre recette #{@recipe.title}")
-	end
-=end
+ 	def newsletters
+ 	end
+
+
 end

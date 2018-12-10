@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_writer :login
+  after_create :send_welcome_email
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -19,7 +20,15 @@ class User < ApplicationRecord
     end
   end
 
+
+
   # has_many :categories, optional: true
   belongs_to :week, optional: true
   has_many :categories, through: :user_categorie_recipe
+
+  private
+
+    def send_welcome_email
+      ContactMailer.welcome(self).deliver.now
+    end
 end
