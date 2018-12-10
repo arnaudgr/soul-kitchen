@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 2018_12_07_215251) do
     t.string "title"
     t.integer "time"
     t.string "image_url"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "steps", force: :cascade do |t|
