@@ -22,8 +22,6 @@ class RecipeController < ApplicationController
 =end
   end
 
-  
-
   def new
     @recipe = Recipe.create
     @ingredient = Ingredient.new
@@ -79,7 +77,10 @@ class RecipeController < ApplicationController
 
   def show
     puts params
-    @recipe = Recipe.find(params[:id])    
+    @recipe = Recipe.find(params[:id])
+    @i = 1
+
+    @ingr = []
   end
 
   private

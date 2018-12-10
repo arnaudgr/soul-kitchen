@@ -62,56 +62,39 @@
                                 <ul>
                                     <li class="active"><%= link_to "Home",  root_path %> </li>
                                     
-                                 <% if current_user.nil? %>
-
-      <li>
-        <%= link_to "Se connecter", new_user_session_path %>
-      </li>
-      <li>
-        <%= link_to "S'inscrire", new_user_registration_path %>
-      </li>
-
-      <% end %>
-
-                                
-                                    <li> <%= link_to("Mon Profil", { controller: "user", action:"index" } ) %></li>
-                                    <li><%= link_to("Proposer recette", { controller: "recipe", action: "new" } ) %></li>
-                                    
+                                    <% if user_signed_in? %>
+                                        <li> <%= link_to("Mon Profil", user_path ) %> </li>
+                                        <li> <%= link_to("Proposer recette", new_recipe_path ) %> </li>
+                                    <% else %>
+                                        <li> <%= link_to "Se connecter", new_user_session_path%> </li>
+                                        <li> <%= link_to "S'inscrire", new_user_registration_path%> </li>
+                                    <% end %>
+                                       
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
 
-                                <!-- Newsletter Form -->
-                               
-                                 
-
-
                                 <div class="cn-dropdown-item has-down">
    
-                                        <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>>
+                                  <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>> 
 
- 
-
-                                     <div id="myDropdown" class="dropdown-content" >
-                                         <% unless user_signed_in? %>
-                                             <li class="dropdown">
-                                            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-                                          </li>
-                                          <li class="dropdown">
-                                            <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-                                          </li>
-                                          <% else %>
-                                          <div class="dropdown" >
-                                            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                                          </div>
-
-                                          <div class="dropdown" >
-                                            <%= link_to("Proposer recette", { controller: "recipe", action: "new" } ) %>
-                                          </div>
-                                          <% end %>
-                                          
-                                 </div>
-
-                            </div>
+                                  <div id="myDropdown" class="dropdown-content" >
+                                    <% unless user_signed_in? %>
+                                      <li class="dropdown">
+                                        <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+                                      </li>
+                                      <li class="dropdown">
+                                        <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+                                      </li>
+                                    <% else %>
+                                      <div class="dropdown" >
+                                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                                      </div>
+                                      <div class="dropdown" >
+                                        <%= link_to("Proposer recette", new_recipe_path ) %>
+                                      </div>
+                                    <% end %>
+                                  </div>
+                                </div>
                             <!-- Nav End -->
                         </div>
                     </nav>
