@@ -75,6 +75,11 @@ class RecipeController < ApplicationController
     flash[:notice] = "Votre recette a bien été créée"
   end
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
+
   private
 
     def recipe_params

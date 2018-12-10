@@ -12,18 +12,16 @@
                                 <% end %>
                             </select>
                         </div>
+
                         <div class="col-12 col-lg-3">
-                            <select name="select1" id="select2">
-                                <option value="1">All Receipies Categories</option>
-                                <option value="1">All Receipies Categories 2</option>
-                                <option value="1">All Receipies Categories 3</option>
-                                <option value="1">All Receipies Categories 4</option>
-                                <option value="1">All Receipies Categories 5</option>
+                            <select name="select1" id="select1">
+                                <%Recipe.all.each do |u| %>
+                                    <option value="1"><%= u.title %></option>
+                                <% end %>
                             </select>
                         </div>
-                        <div class="col-12 col-lg-3">
-                            <input type="search" name="search" placeholder="Trouver une recette">
-                        </div>
+                        
+                        
                         <div class="col-12 col-lg-3 text-right">
                             <button type="submit" class="btn delicious-btn">Rechercher</button>
                         </div>
