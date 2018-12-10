@@ -10,26 +10,23 @@
   <%= devise_error_messages! %>
 <div class="contact-form-area">
   <div class="field">
-    <%= f.label :username, 'Pseudo' %><br />
-    <%= f.text_field :username %>
+    <%= f.text_field :username, placeholder: "Pseudo", autofocus: true, autocomplete: "email", class: "form-control", id: "session_email"%>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "Email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "Email", placeholder: "Email", class: "form-control", id: "session_email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password, 'Mot de passe' %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "Mot de passe" %>
+
+    <%= f.password_field :password, autocomplete: "Mot de passe", placeholder: if @minimum_password_length 
+    "Mot de passe (#{@minimum_password_length} caractères mini)"
+    end, class: "form-control", id: "session_email" %>
+ 
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, 'Confirmation du mot de passe' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "Confirmation mot de passe" %>
+    <%= f.password_field :password_confirmation, autocomplete: "Confirmation mot de passe", placeholder: "Confirmation du mot de passe", class: "form-control", id: "session_email" %>
   </div>
 
   <div class="actions">
