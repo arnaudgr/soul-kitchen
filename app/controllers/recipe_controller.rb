@@ -1,7 +1,7 @@
 class RecipeController < ApplicationController
   def index
 =begin
-  	response = HTTParty.post('https://gateway-syd.watsonplatform.net/text-to-speech/api',
+    response = HTTParty.post('https://gateway-syd.watsonplatform.net/text-to-speech/api',
     :header => {
         :things => [{myid: 1}, {id: 2}, {id: 3}],
     }.to_json,
@@ -13,12 +13,12 @@ class RecipeController < ApplicationController
         "text": "Les bretons les meilleurs"}'
      :output => hello_world.wav
         {
-        	"https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize"
+          "https://stream.watsonplatform.net/text-to-speech/api/v1/synthesize"
         }
     }
 )
 
-  	puts response
+    puts response
 =end
   end
 
@@ -33,7 +33,7 @@ class RecipeController < ApplicationController
     @recipe = Recipe.last
     @step = Step.new
     @step.recipe_id = @recipe.id
-    @step.description = params[:description]
+    @step.description = params[:description].gsub("@", ".").gsub("£", "/")
     if @step.save
       respond_to do |format|
         format.js
@@ -50,7 +50,7 @@ class RecipeController < ApplicationController
     @recingredient = Recingredient.new
     @recingredient.recipe_id = @recipe.id
     @recingredient.ingredient_id = ing.id
-    @recingredient.quantity = params[:quantity]
+    @recingredient.quantity = params[:quantity].gsub("@", ".").gsub("£", "/")
     if @recingredient.save
       respond_to do |format|
         format.js 
@@ -76,9 +76,9 @@ class RecipeController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    puts params
+    @recipe = Recipe.find(params[:id])    
   end
-
 
   private
 

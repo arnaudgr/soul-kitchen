@@ -42,6 +42,8 @@ window.onclick = function(event) {
   $(document).ready(function() {
   $('#add-step').on('click', function() {
   var base_url = "/recipe/add_step"
+  $('#description').val( $('#description').val().replace('.', '@') );
+  $('#description').val( $('#description').val().replace('/', '£') );
   var description = $('#description').val()
   var url = base_url+'/'+description
   
@@ -49,9 +51,13 @@ window.onclick = function(event) {
     });
   });
 
+/* CREATION INGREDIENT */
+
   $(document).ready(function() {
   $('#add-ingredient').on('click', function() {
   var base_url = "/recipe/add_ing"
+  $('#quantity').val( $('#quantity').val().replace('.', '@') );
+  $('#quantity').val( $('#quantity').val().replace('/', '£') );
   var quantity = $('#quantity').val()
   var namevrai = $('#namevrai').val()
   var url = base_url+'/'+quantity+'/'+namevrai
