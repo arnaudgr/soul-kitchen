@@ -11,6 +11,11 @@ require 'active_support'
 require 'active_support/time'
 
 
+class InstaAutolike
+
+def follow
+
+
 # Add your username and password in place of 'ENV['USERNAME']' or go and add those variables in your own .env file.
 username = ENV['INSTA_USERNAME']
 password = ENV['INSTA_PASSWORD']
@@ -114,4 +119,6 @@ loop do
       counter_checker
     end
   end
+end
+end
 end

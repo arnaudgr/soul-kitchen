@@ -5,14 +5,23 @@ require 'rb-readline' # Ruby IRB
 require 'awesome_print' # Console output
 # Pulls in login credentials from credentials.rb
 
-username = ENV['INSTA_USERNAME']
-password = ENV['INSTA_PASSWORD']
-hashtags = ['food']
-like_counter = 0
-post_index = 0
-# num_of_rounds = 0
-MAX_LIKES = 80
-start_time = Time.now
+require 'dotenv'
+
+class InstaAutolike
+
+
+ 
+
+
+ def like
+    username = ENV['INSTA_USERNAME']
+    password = ENV['INSTA_PASSWORD']
+    hashtags = ['food']
+    like_counter = 0
+    post_index = 0
+    # num_of_rounds = 0
+    MAX_LIKES = 80
+    start_time = Time.now
 
 
 # Open Browser, Navigate to Login page
@@ -93,4 +102,5 @@ end
 # Otherwise, take it out and program will just end
 Pry.start(binding)
 
-
+end 
+end
