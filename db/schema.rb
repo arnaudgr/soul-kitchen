@@ -39,7 +39,8 @@ ActiveRecord::Schema.define(version: 2018_12_07_215251) do
   create_table "recingredients", force: :cascade do |t|
     t.bigint "recipe_id"
     t.bigint "ingredient_id"
-    t.string "quantity"
+    t.integer "quantity"
+    t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ingredient_id"], name: "index_recingredients_on_ingredient_id"
@@ -48,6 +49,21 @@ ActiveRecord::Schema.define(version: 2018_12_07_215251) do
 
   create_table "recipes", force: :cascade do |t|
     t.string "title"
+    t.text "step_1"
+    t.text "step_2"
+    t.text "step_3"
+    t.text "step_4"
+    t.text "step_5"
+    t.text "step_6"
+    t.text "step_7"
+    t.text "step_8"
+    t.text "step_9"
+    t.text "step_10"
+    t.text "step_11"
+    t.text "step_12"
+    t.text "step_13"
+    t.text "step_14"
+    t.text "step_15"
     t.integer "time"
     t.string "image_url"
   end
