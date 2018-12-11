@@ -6,8 +6,10 @@ class ContactMailer < ApplicationMailer
  	  mail(to: @user.email, subject: "Bienvenue chez Soul Kitchen")
  	end
 
- 	def newsletters
+ 	def subscriber_mailer
+      @subscriber = Subscriber.all
+      @lastrecipe = Recipe.last(5)
+      emails = @subscriber.lastrecipe(&:email).join(", ")
+      mail(to: emails, subject: "Retrouvez nos dernières actualités fumantes")
  	end
-
-
-end
+ end
