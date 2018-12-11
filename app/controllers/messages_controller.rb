@@ -15,5 +15,6 @@ class MessagesController < ApplicationController
   	end
   
   def thanks
+  	puts "ça marche"
   end
 end
