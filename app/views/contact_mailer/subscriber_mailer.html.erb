@@ -1,0 +1,20 @@
+<h1>Bonjour </h1>
+<p> Voici nos dernières recettes qui te feront salivé ! </p>
+
+<br/>
+<table>
+        <% @lastrecipe.each do |lastrecipe| %>
+  
+            <td>
+            <h3>
+              <%= link_to lastrecipe.title, :controller => "recipe", :action => "show", :only_path => false, :id => lastrecipe.id %>
+            </h3>
+              <p><%= lastrecipe.description %></p>
+              </td>
+        <td style="display:flex; float:left; clear:both;">
+           
+        </td>
+      </tr>
+  
+<% end %>
+</table>
