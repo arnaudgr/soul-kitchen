@@ -20,10 +20,8 @@ class UserController < ApplicationController
 
 	def show
 
-    puts current_user.nil?
-
     if current_user.nil?
-      flash[:danger] = "Tu ne peux voir les recettes si tu n'es pas connecté"
+      flash[:danger] = "Tu ne peux pas accéder à cette page si tu n'es pas connecté(e)"
       redirect_to new_user_registration_path
 
     else
@@ -31,7 +29,7 @@ class UserController < ApplicationController
           if current_user.id.to_s == params[:id]
             @user = User.find(params[:id])
           else
-            flash[:danger] = "tu ne peux accéder à cette page "
+            flash[:danger] = "Tu ne peux accéder à cette page "
             redirect_to root_path
           end
 

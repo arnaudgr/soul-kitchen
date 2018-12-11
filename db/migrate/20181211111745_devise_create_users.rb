@@ -3,11 +3,12 @@
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
+      t.boolean :admin, default: false
+      t.belongs_to :week
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-      t.boolean :admin, default: false
-      t.belongs_to :week
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at
