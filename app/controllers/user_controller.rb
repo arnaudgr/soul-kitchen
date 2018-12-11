@@ -17,7 +17,27 @@ class UserController < ApplicationController
 
 	end
 
+
 	def show
 
-	end
+    puts current_user.nil?
+
+    if current_user.nil?
+      flash[:danger] = "Tu ne peux voir les recettes si tu n'es pas connecté"
+      redirect_to new_user_registration_path
+
+    else
+
+          if current_user.id.to_s == params[:id]
+            @user = User.find(params[:id])
+          else
+            flash[:danger] = "tu ne peux accéder à cette page "
+            redirect_to root_path
+          end
+
+    end
+
+  end
+
+	
 end
