@@ -81,7 +81,16 @@ class RecipeController < ApplicationController
     @i = 1
 
     @ingr = []
-  end
+
+    @reviews = Review.where(recipe_id: @recipe.id).order("created_at DESC")
+
+    unless @reviews.present?
+     @avg_review = 0
+    else
+     @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0
+    end
+    end
+ 
 
   private
 
