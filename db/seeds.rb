@@ -174,7 +174,7 @@ Step.create(recipe_id: 5, description: "Roulez les tranches en makis et coupez-l
 Categorecipe.create(recipe_id: 5, category_id: Category.find_by(name: "Amuse-gueule").id)
 Categorecipe.create(recipe_id: 5, category_id: Category.find_by(name: "Carnivore").id)
 
-Recipe.create(title: "Soupe aux lentilles corail", time: 5, image_url: "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2Fab25f7dd-3ffc-4911-9d44-5bf41c494c2c.2Ejpeg/748x372/quality/80/crop-from/center/jambon-au-boursin.jpeg")
+Recipe.create(title: "Soupe aux lentilles corail", time: 5, image_url: "https://vegan-pratique.fr/wp-content/uploads/2018/04/soupe-lentilles-corail3-1024x683.jpg")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Oignon(s) roses de Bretagne").id, quantity: "225 g d'")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Eau").id, quantity: "1L d'")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Huile").id, quantity: "1 cuillère à soupe")
