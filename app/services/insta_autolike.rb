@@ -20,7 +20,7 @@ class InstaAutolike
     like_counter = 0
     post_index = 0
     # num_of_rounds = 0
-    MAX_LIKES = 80
+    # MAX_LIKES = 80
     start_time = Time.now
 
 

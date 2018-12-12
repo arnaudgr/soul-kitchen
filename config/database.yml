@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: soul-kitchen_production
-  username: soul-kitchen
-  password: <%= ENV['SOUL-KITCHEN_DATABASE_PASSWORD'] %>
+  # username: soul-kitchen
+  # password: <%= ENV['SOUL-KITCHEN_DATABASE_PASSWORD'] %>

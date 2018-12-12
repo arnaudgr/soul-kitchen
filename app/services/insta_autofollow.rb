@@ -24,8 +24,8 @@ password = ENV['INSTA_PASSWORD']
 @my_followers = []
 
 # Set this to the max amount of follows or unfollows you are wanting per hour.
-MAX_UNFOLLOWS = 160
-MAX_FOLLOWS = 160
+# MAX_UNFOLLOWS = 160
+# MAX_FOLLOWS = 160
 
 @usernames = []
 @keywords = ["Rennes"]
