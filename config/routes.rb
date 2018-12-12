@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 	patch '/recipe', to: 'recipe#realcreate'
 	resources :recipe
 	resources :user
+	resources :categories
 	resources :subscribers
 	resources :messages
 

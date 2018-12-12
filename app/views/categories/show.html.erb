@@ -1,0 +1,20 @@
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-text text-center">
+                    <h2><%= @category.name %></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% @recipes.each do |u| %>
+	<a href="/recipe/<%= u.id %>">
+		<div class="col-6 card">
+			<%= u.title %>
+			<img src="<%= u.image_url %>" alt="<%= u.title %>" name="<%= u.title %> "/>
+		</div>
+	</a>
+<% end %>

@@ -23,10 +23,13 @@ class RecipeController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.create
-    @ingredient = Ingredient.new
-    @ingredients = Ingredient.all
-    @recingredient = Recingredient.new
+    if user_signed_in?
+      @recipe = Recipe.create
+      @ingredient = Ingredient.new
+      @ingredients = Ingredient.all
+      @recingredient = Recingredient.new
+      @categories = Category.all
+    end
   end
 
   def add_step
@@ -69,7 +72,16 @@ class RecipeController < ApplicationController
     @recipe.update(title: params[:recipe][:title])
     @recipe.update(time: params[:recipe][:time])
     @recipe.update(image_url: params[:recipe][:image_url])
-    @recipe.save 
+
+    @categorecipe1 = Categorecipe.new
+    @categorecipe1.recipe_id = @recipe.id
+    @categorecipe1.category_id = Category.find_by(name: params[:recipe][:categories][:cateone]).id
+    @categorecipe1.save
+
+    @categorecipe2 = Categorecipe.new
+    @categorecipe2.recipe_id = @recipe.id
+    @categorecipe2.category_id = Category.find_by(name: params[:recipe][:categories][:catetwo]).id
+    @categorecipe2.save
      
     redirect_to root_path
     flash[:notice] = "Votre recette a bien été créée"
