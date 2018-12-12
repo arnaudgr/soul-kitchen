@@ -1,81 +1,101 @@
-<div class="contact-area section-padding-0-80">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-heading">
-          <h3>Crée ta Recette</h3>
+<% if user_signed_in? %>
+
+  <div class="contact-area section-padding-0-80">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-heading">
+            <h3>Crée ta Recette</h3>
+          </div>
         </div>
       </div>
-    </div>
 
-<!-- FORMULAIRE CREATION RECETTE -->
+  <!-- FORMULAIRE CREATION RECETTE -->
 
-    <div class="row">
-      <div class="col-12">
-        <div class="contact-form-area">
-          <%= form_for @recipe, :url => {:controller => :recipe, action: :realcreate} do |form| %>
-            <div class="row">
-              <div class="col-12 col-lg-9">
-                <%= form.label :title, 'Titre' %>
-                <%= form.text_field :title, class: 'form-control', id: 'name' %>
-              </div>
-
-              <!-- LISTE ETAPES -->
-
-              <div class="col-12">
-                Mes étapes
-                <div id="list-step">
+      <div class="row">
+        <div class="col-12">
+          <div class="contact-form-area">
+            <%= form_for @recipe, :url => {:controller => :recipe, action: :realcreate} do |form| %>
+              <div class="row">
+                <div class="col-12 col-lg-9">
+                  <%= form.label :title, 'Titre' %>
+                  <%= form.text_field :title, class: 'form-control', id: 'name' %>
                 </div>
-              </div>
 
-              <!-- AJOUT ÉTAPES -->
+                <!-- LISTE ETAPES -->
 
-              <div class ="col-12" id="form-step">
-                <input type="text" id="description" class="form-control col-12" placeholder="Description de l'étape" />
-                <span class="btn delicious-btn col-2" id="add-step" remote=true>Ajouter une étape</span>
-              </div>
-
-              <!-- LISTE INGREDIENTS -->
-
-              <div class="col-12">
-                Mes ingrédients
-                <div id="list-ing">
+                <div class="col-12">
+                  Mes étapes
+                  <div id="list-step">
+                  </div>
                 </div>
-              </div>
+
+                <!-- AJOUT ÉTAPES -->
+
+                <div class ="col-12" id="form-step">
+                  <input type="text" id="description" class="form-control col-12" placeholder="Description de l'étape" />
+                  <span class="btn delicious-btn col-2" id="add-step" remote=true>Ajouter une étape</span>
+                </div>
+
+                <!-- LISTE INGREDIENTS -->
+
+                <div class="col-12">
+                  Mes ingrédients
+                  <div id="list-ing">
+                  </div>
+                </div>
 
 
-             <!-- AJOUT AJAX INGREDIENT -->
+               <!-- AJOUT AJAX INGREDIENT -->
 
-              <div class ="col-12" id="form-ing">
-                <input type="text" id="quantity" class="form-control col-5" placeholder="Quantité" />
-                <select id="namevrai" class="col-5">
-                  <% Ingredient.all.each do |u| %>
-                    <option id="namevrai"> <%= u.name %> </option>
+                <div class ="col-12" id="form-ing">
+                  <input type="text" id="quantity" class="form-control col-5" placeholder="Quantité" />
+                  <select id="namevrai" class="col-5">
+                    <% Ingredient.all.each do |u| %>
+                      <option id="namevrai"> <%= u.name %> </option>
+                    <% end %>
+                  </select>
+                  <span class="btn delicious-btn col-2" id="add-ingredient" remote=true>Ajouter ingrédient</span>
+                </div>
+
+                <!-- REPRISE FORM RECIPE -->
+
+                <div class="col-12 col-lg-4">
+                  <%= form.label :time, 'Temps (en mn)' %>
+                  <%= form.number_field :time, class: 'form-control', id: 'name' %>
+                </div>
+
+                <div class="col-12 col-lg-8">
+                  <%= form.label :image_url, "Image (ajoute l'url public d'une image)" %>
+                  <%= form.text_field :image_url, class: 'form-control', id: 'name' %>
+                </div>
+
+                <div class="col-12">
+                  <%= form.fields_for :categories do |builder| %>
+                    <%= builder.label :categories, "Choisissez une première catégorie" %>
+                    <%= builder.select(:cateone, @categories.collect {|u| [u.name]}, prompt: 'Select category') %>
                   <% end %>
-                </select>
-                <span class="btn delicious-btn col-2" id="add-ingredient" remote=true>Ajouter ingrédient</span>
-              </div>
+                </div>
 
-              <!-- REPRISE FORM RECIPE -->
+                <div class="col-12">
+                  <%= form.fields_for :categories do |builder| %>
+                    <%= builder.label :categories, "Choisissez une deuxième catégorie" %>
+                    <%= builder.select(:catetwo, @categories.collect {|u| [u.name]}, prompt: 'Select category') %>
+                  <% end %>
+                </div>
 
-              <div class="col-12 col-lg-4">
-                <%= form.label :time, 'Temps (en mn)' %>
-                <%= form.number_field :time, class: 'form-control', id: 'name' %>
+                <div class="col-12 text-center">
+                  <%= form.submit "Créer ma Recette", class: "btn delicious-btn mt-30" %>
+                </div>
               </div>
-
-              <div class="col-12 col-lg-8">
-                <%= form.label :image_url, "Image (ajoute l'url public d'une image)" %>
-                <%= form.text_field :image_url, class: 'form-control', id: 'name' %>
-              </div>
-
-              <div class="col-12 text-center">
-                <%= form.submit "Créer ma Recette", class: "btn delicious-btn mt-30" %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
-</div>
+
+<% else %>
+  Vous devez être connecté(e) pour accéder à cette page.
+<% end %>
