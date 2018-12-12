@@ -2,26 +2,15 @@
 <html>
   <head>
     <title>SoulKitchen</title>
-    <%= csrf_meta_tags %>
+      <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-   
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-     
-
-
-   
-
-</head>
-
-
-
-
-
-
   </head>
+
+
 
       <meta charset="UTF-8">
     <meta name="description" content="">
@@ -38,35 +27,37 @@
      
     
 
-      <%= render 'layouts/navbar'  %>
-      <%= render 'layouts/search'  %>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-     <%= yield %>
-
-    <%= render 'layouts/footer'  %>
-
-      <!--
-       render "modal/myModalSignUp"  
-            render "modal/myModal" -->
+            <%= render 'layouts/navbar'  %>
+            <%= render 'layouts/search'  %>
+            <% flash.each do |key, value| %>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    
+              <div class="alert alert-<%= key %>"><%= value %></div>
+            <% end %>
+           <%= yield %>
 
-    <%= javascript_include_tag 'jquery/jquery-2.2.4.min.js' %>
-    <!-- Popper js -->
-    <%= javascript_include_tag 'bootstrap/popper.min.js' %>
-    <!-- Bootstrap js -->
-    <%= javascript_include_tag 'bootstrap/bootstrap.min.js' %>
+          <%= render 'layouts/footer'  %>
 
-    <%= javascript_include_tag 'jquery.raty.js' %>
-    <!-- Plugins js -->
-     <%= javascript_include_tag 'plugins/plugins.js' %>
-    <!-- Active js -->
-     <%= javascript_include_tag 'active.js' %>
+            <!--
+             render "modal/myModalSignUp"  
+                  render "modal/myModal" -->
+
+
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          
+          
+
+          <%= javascript_include_tag 'jquery/jquery-2.2.4.min.js' %>
+          <!-- Popper js -->
+          <%= javascript_include_tag 'bootstrap/popper.min.js' %>
+          <!-- Bootstrap js -->
+          <%= javascript_include_tag 'bootstrap/bootstrap.min.js' %>
+
+          <%= javascript_include_tag 'jquery.raty.js' %>
+          <!-- Plugins js -->
+           <%= javascript_include_tag 'plugins/plugins.js' %>
+          <!-- Active js -->
+           <%= javascript_include_tag 'active.js' %>
   </body>
 </html>
