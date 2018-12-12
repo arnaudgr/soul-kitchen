@@ -15,8 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery3
+//= require jquery.raty
 //= require popper
 //= require bootstrap
+
 
 
 /* DROPDOWN NAVBAR MAMENE */
