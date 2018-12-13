@@ -1,83 +1,78 @@
 <header>
 
- 
-
- 
-
-        <div class="top-header-area">
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-between">
-                    <!-- Breaking News -->
-                    <div class="col-12 col-sm-6">
-                        <div class="breaking-news">
-                            <div id="breakingNewsTicker" class="ticker">
-                                <ul>
-                                    <li><a href="#">Soul Kitchen</a></li>
-                                    <li><a href="#">Hello !</a></li>
-                                </ul>
-                            </div>
+    <div class="top-header-area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-between">
+                <!-- Breaking News -->
+                <div class="col-12 col-sm-6">
+                    <div class="breaking-news">
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="/">Soul Kitchen</a></li>
+                                <li><a href="/">Hello !</a></li>
+                            </ul>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Top Social Info -->
-                    <div class="col-12 col-sm-6">
-                        <div class="top-social-info text-right">
-                            <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                        </div>
+                <!-- Top Social Info -->
+                <div class="col-12 col-sm-6">
+                    <div class="top-social-info text-right">
+                        <a href="https://www.youtube.com/watch?v=mt4kwxSF9yw"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="https://fr.wikipedia.org/wiki/Rennes"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/watch?v=IFnUm7z97Is"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/watch?v=2wpvPvNrO-g"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="https://www.joel-robuchon.com/"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="https://www.instagram.com/sooul_kitchen/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/watch?v=ZyXGccUOAeI"><i class="fa fa-google" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Navbar Area -->
-        <div class="delicious-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <div class="container">
+    <!-- Navbar Area -->
+    <div class="delicious-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="/"> <%=image_tag 'soullogo.png', :height => '200', :width => '200'%> </a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
                     <!-- Menu -->
-                    <nav class="classy-navbar justify-content-between" id="deliciousNav">
+                    <div class="classy-menu">
 
-                        <!-- Logo -->
-                        <a class="nav-brand" href="index.html"> <%=image_tag 'soullogo.png', :height => '200', :width => '200'%> </a>
-
-                        <!-- Navbar Toggler -->
-                        <div class="classy-navbar-toggler">
-                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
 
-                        <!-- Menu -->
-                        <div class="classy-menu">
-
-                            <!-- close btn -->
-                            <div class="classycloseIcon">
-                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                            </div>
-
-                            <!-- Nav Start -->
-                            <div class="classynav">
-                                <ul>
-                                    <li class="active"><%= link_to "Home",  root_path %> </li>
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+                                <li class="active"><%= link_to "Home",  root_path %> </li>
                                     
-                                    <% if user_signed_in? %>
-                                        <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
-                                        <li> <%= link_to("Proposer recette", new_recipe_path ) %> </li>
-                                    <% else %>
-                                        <li> <%= link_to "Se connecter", new_user_session_path%> </li>
-                                        <li> <%= link_to "S'inscrire", new_user_registration_path%> </li>
-                                    <% end %>
-                                       
-                                    <li><%= link_to("Nous contacter", new_message_path ) %></li>
-                                </ul>
+                                <% if user_signed_in? %>
+                                    <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
+                                    <li> <%= link_to("Proposer recette", new_recipe_path ) %> </li>
+                                <% else %>
+                                    <li> <%= link_to "Se connecter", new_user_session_path%> </li>
+                                    <li> <%= link_to "S'inscrire", new_user_registration_path%> </li>
+                                <% end %>
+                                      
+                                <li><%= link_to("Nous contacter", new_message_path ) %></li>
+                            </ul>
 
-                                <div class="cn-dropdown-item has-down">
-   
-                                  <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>> 
-
-                                  <div id="myDropdown" class="dropdown-content" >
+                            <div class="cn-dropdown-item has-down">
+                                <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>> 
+                                <div id="myDropdown" class="dropdown-content" >
                                     <% unless user_signed_in? %>
                                       <li class="dropdown">
                                         <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
@@ -93,13 +88,13 @@
                                         <%= link_to("Proposer recette", new_recipe_path ) %>
                                       </div>
                                     <% end %>
-                                  </div>
                                 </div>
-                            <!-- Nav End -->
-                        </div>
-                    </nav>
-                </div>
+                            </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
             </div>
         </div>
-    </header>
-    <!-- ##### Header Area End ##### -->
+    </div>
+</header>
+<!-- ##### Header Area End ##### -->
