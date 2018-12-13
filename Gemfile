@@ -23,7 +23,7 @@ gem "jquery-rails"
 gem 'popper_js', '~> 1.12.9'
 
 gem 'mailjet'
-
+gem 'twitter'
 
 
 gem 'httparty', '~> 0.13.7'
