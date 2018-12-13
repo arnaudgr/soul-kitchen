@@ -76,7 +76,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
-gem 'twitter'
 gem 'watir'
 gem 'rb-readline'
 gem 'awesome_print'

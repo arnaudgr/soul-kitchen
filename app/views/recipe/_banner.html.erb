@@ -9,8 +9,8 @@
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms">Tarte aux tomates sur son lit de thon</h2>
-                                <p data-animation="fadeInUp" data-delay="700ms">“Les rires éclatent mieux lorsque la nourriture est bonne.” Proverbe irlandais.</p>
-                                <a   class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez nos recettes salées </a>
+                                <p data-animation="fadeInUp" data-delay="700ms">“Les rires éclatent mieux lorsque la nourriture est bonne.” Proverbe irlandais</p>
+                                <a href="/categories/<%= Category.find_by(name: "Salé").id %>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez nos recettes salées </a>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
                                 <h2 data-animation="fadeInUp" data-delay="300ms">Tomates confites Express</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">“Si un plus grand nombre d’entre nous préférait la nourriture, la gaieté et les chansons aux entassements d’or, le monde serait plus rempli de joie.” De J. R. R. Tolkien / Bilbo le Hobbit </p>
-                                <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez les recettes amuses-gueules</a>
+                                <a href="/categories/<%= Category.find_by(name: "Amuse-gueule").id %>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez les recettes amuses-gueules</a>
                             </div>
                         </div>
                     </div>
@@ -38,9 +38,9 @@
                     <div class="row h-100 align-items-center">
                         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                             <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
-                                <h2 data-animation="fadeInUp" data-delay="300ms">Soupe Végan, Potiron/Butterut/Lait de Coco & ses croutons ailés</h2>
+                                <h2 data-animation="fadeInUp" data-delay="300ms">Soupe Végan, Potiron/Butternut/Lait de Coco & ses croutons ailés</h2>
                                 <p data-animation="fadeInUp" data-delay="700ms">“La gastronomie est l'art d'utiliser la nourriture pour créer le bonheur.”</p>
-                                <a class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez nos recettes Végan</a>
+                                <a href="/categories/<%= Category.find_by(name: "Végan").id %>" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms"> Découvrez nos recettes Végan</a>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                         <div class="top-cta-content">
                             <h3>Fish N' Chips aux couleurs d'Automne</h3>
                             <h6>Facile &amp; Délicieux</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">Découvrez nos recettes piscivores</a>
+                            <a href="/categories/<%= Category.find_by(name: "Piscivore").id %>" class="btn delicious-btn">Découvrez nos recettes piscivores</a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                         <div class="top-cta-content">
                             <h3>Donuts de poche</h3>
                             <h6>Rapide &amp; Addictif</h6>
-                            <a href="receipe-post.html" class="btn delicious-btn">Découvre les recettes sucrées</a>
+                            <a href="/categories/<%= Category.find_by(name: "Sucré").id %>" class="btn delicious-btn">Découvre les recettes sucrées</a>
                         </div>
                     </div>
                 </div>
