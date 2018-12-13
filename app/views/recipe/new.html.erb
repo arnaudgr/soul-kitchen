@@ -60,19 +60,24 @@
 
                 <!-- REPRISE FORM RECIPE -->
 
-                <div class="col-12 col-lg-4">
-                  <%= form.label :time, 'Temps (en mn)' %>
-                  <%= form.number_field :time, class: 'form-control', id: 'name' %>
+                <div class="col-12 col-lg-6">
+                  <%= form.label :timeprep, 'Temps de préparation (en mn)' %>
+                  <%= form.number_field :timeprep, class: 'form-control', id: 'name' %>
                 </div>
 
-                <div class="col-12 col-lg-8">
-                  <%= form.label :image_url, "Image (ajoute l'url public d'une image)" %>
+                <div class="col-12 col-lg-6">
+                  <%= form.label :timecook, 'Temps de cuisson (en mn)' %>
+                  <%= form.number_field :timecook, class: 'form-control', id: 'name' %>
+                </div>
+
+                <div class="col-12">
+                  <%= form.label :image_url, "Image (ajoutez l'url public d'une image)" %>
                   <%= form.text_field :image_url, class: 'form-control', id: 'name' %>
                 </div>
 
                 <div class="col-12">
                   <%= form.fields_for :categories do |builder| %>
-                    <%= builder.label :categories, "Choisissez une première catégorie" %>
+                    <%= builder.label :categories, "Choisissez la catégorie qui correspond le mieux à votre recette" %>
                     <%= builder.select(:cateone, @categories.collect {|u| [u.name]}, prompt: 'Select category') %>
                   <% end %>
                 </div>
