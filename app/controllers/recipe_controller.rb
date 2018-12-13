@@ -70,7 +70,8 @@ class RecipeController < ApplicationController
   def realcreate
     @recipe = Recipe.last
     @recipe.update(title: params[:recipe][:title])
-    @recipe.update(time: params[:recipe][:time])
+    @recipe.update(timeprep: params[:recipe][:timeprep])
+    @recipe.update(timecook: params[:recipe][:timecook])
     @recipe.update(image_url: params[:recipe][:image_url])
 
     @categorecipe1 = Categorecipe.new
@@ -107,7 +108,7 @@ class RecipeController < ApplicationController
   private
 
     def recipe_params
-      params.require(:recipe).permit(:title, :time, :image_url)
+      params.require(:recipe).permit(:title, :timeprep, :timecook, :image_url)
     end
 
 end

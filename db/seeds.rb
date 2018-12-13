@@ -108,7 +108,7 @@ Category.create(name: 'Scandinave')
 Category.create(name: 'Portugais')
 Category.create(name: 'Tex-mex')
 
-Recipe.create(title: "Tourteau fromager du Poitou", time: 90, image_url: "https://image.afcdn.com/recipe/20130611/10688_w600.jpg")
+Recipe.create(title: "Tourteau fromager du Poitou", timeprep: 40, timecook: 50, image_url: "https://image.afcdn.com/recipe/20130611/10688_w600.jpg")
 Recingredient.create(recipe_id: 1, ingredient_id: Ingredient.find_by(name: "Farine").id, quantity: "250 g de")
 Recingredient.create(recipe_id: 1, ingredient_id: Ingredient.find_by(name: "Beurre").id, quantity: "150 g de")
 Recingredient.create(recipe_id: 1, ingredient_id: Ingredient.find_by(name: "Jaune(s) d'oeufs").id, quantity: "1")
@@ -125,7 +125,7 @@ Step.create(recipe_id: 1, description: "Sortir le tourteau du four, le laisser r
 Categorecipe.create(recipe_id: 1, category_id: Category.find_by(name: "Dessert").id)
 Categorecipe.create(recipe_id: 1, category_id: Category.find_by(name: "Sucré-salé").id)
 
-Recipe.create(title: "Raclette", time: 40, image_url: "https://levavispatulas.files.wordpress.com/2011/12/20111210_3233.jpg")
+Recipe.create(title: "Raclette", timeprep: 40, timecook: 20, image_url: "https://levavispatulas.files.wordpress.com/2011/12/20111210_3233.jpg")
 Recingredient.create(recipe_id: 2, ingredient_id: Ingredient.find_by(name: "Fromage à raclette").id, quantity: "800 g de")
 Recingredient.create(recipe_id: 2, ingredient_id: Ingredient.find_by(name: "Pomme(s) de terre").id, quantity: "1 kg de")
 Recingredient.create(recipe_id: 2, ingredient_id: Ingredient.find_by(name: "Cornichon").id, quantity: " ")
@@ -136,7 +136,7 @@ Step.create(recipe_id: 2, description: "Chacun fait fondre son fromage dans le p
 Categorecipe.create(recipe_id: 2, category_id: Category.find_by(name: "Français").id)
 Categorecipe.create(recipe_id: 2, category_id: Category.find_by(name: "Avec fromage").id)
 
-Recipe.create(title: "Poulet au pastis", time: 15, image_url: "https://static.750g.com/images/622-auto/c79d102c86fdca5831abbf2c0fde9ac1/poulet-au-pastis.jpeg")
+Recipe.create(title: "Poulet au pastis", timeprep: 20, timecook: 60, image_url: "https://static.750g.com/images/622-auto/c79d102c86fdca5831abbf2c0fde9ac1/poulet-au-pastis.jpeg")
 Recingredient.create(recipe_id: 3, ingredient_id: Ingredient.find_by(name: "Sel").id, quantity: " ")
 Recingredient.create(recipe_id: 3, ingredient_id: Ingredient.find_by(name: "Poivre").id, quantity: " ")
 Recingredient.create(recipe_id: 3, ingredient_id: Ingredient.find_by(name: "Herbes aromatiques").id, quantity: " ")
@@ -153,7 +153,7 @@ Step.create(recipe_id: 3, description: "Laisser cuire au four 55 minutes. Couvri
 Categorecipe.create(recipe_id: 3, category_id: Category.find_by(name: "Avec alcool").id)
 Categorecipe.create(recipe_id: 3, category_id: Category.find_by(name: "Carnivore").id)
 
-Recipe.create(title: "Jambon au boursin anti gueule de bois", time: 5, image_url: "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2Fab25f7dd-3ffc-4911-9d44-5bf41c494c2c.2Ejpeg/748x372/quality/80/crop-from/center/jambon-au-boursin.jpeg")
+Recipe.create(title: "Jambon au boursin anti gueule de bois", timeprep: 5, timecook: 0, image_url: "https://cac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2Fcac.2F2018.2F09.2F25.2Fab25f7dd-3ffc-4911-9d44-5bf41c494c2c.2Ejpeg/748x372/quality/80/crop-from/center/jambon-au-boursin.jpeg")
 Recingredient.create(recipe_id: 4, ingredient_id: Ingredient.find_by(name: "Jambon blanc").id, quantity: "4 tranches de")
 Recingredient.create(recipe_id: 4, ingredient_id: Ingredient.find_by(name: "Boursin").id, quantity: "1 boîte de")
 Step.create(recipe_id: 4, description: "Etalez les tranches de jambon, et tartinez les avec du Boursin.")
@@ -161,7 +161,7 @@ Step.create(recipe_id: 4, description: "Roulez les tranches en makis et coupez-l
 Categorecipe.create(recipe_id: 4, category_id: Category.find_by(name: "Amuse-gueule").id)
 Categorecipe.create(recipe_id: 4, category_id: Category.find_by(name: "Carnivore").id)
 
-Recipe.create(title: "Soupe aux lentilles corail", time: 5, image_url: "https://vegan-pratique.fr/wp-content/uploads/2018/04/soupe-lentilles-corail3-1024x683.jpg")
+Recipe.create(title: "Soupe aux lentilles corail", timeprep: 10, timecook: 20, image_url: "https://vegan-pratique.fr/wp-content/uploads/2018/04/soupe-lentilles-corail3-1024x683.jpg")
 Recingredient.create(recipe_id: 5, ingredient_id: Ingredient.find_by(name: "Oignon(s) roses de Bretagne").id, quantity: "225 g d'")
 Recingredient.create(recipe_id: 5, ingredient_id: Ingredient.find_by(name: "Eau").id, quantity: "1L d'")
 Recingredient.create(recipe_id: 5, ingredient_id: Ingredient.find_by(name: "Huile").id, quantity: "1 cuillère à soupe")
@@ -174,7 +174,7 @@ Step.create(recipe_id: 5, description: "Mixer (optionnel).")
 Categorecipe.create(recipe_id: 5, category_id: Category.find_by(name: "Végan").id)
 Categorecipe.create(recipe_id: 5, category_id: Category.find_by(name: "Soupe").id)
 
-Recipe.create(title: "Chou-fleur et pois chiches épicés, rôtis et grenade", time: 30, image_url: "https://menu-vegetarien.com/wp-content/uploads/2018/11/recette-vegetarienne-chou-fleur-pois-chiches-epices-rotis-grenade.jpg")
+Recipe.create(title: "Chou-fleur et pois chiches épicés, rôtis et grenade", timeprep: 20, timecook: 45, image_url: "https://menu-vegetarien.com/wp-content/uploads/2018/11/recette-vegetarienne-chou-fleur-pois-chiches-epices-rotis-grenade.jpg")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Chou-fleur(s)").id, quantity: "Les fleurettes d'1")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Pois chiches").id, quantity: "400 g")
 Recingredient.create(recipe_id: 6, ingredient_id: Ingredient.find_by(name: "Ail").id, quantity: "1 càc et demi de poudre d'")
@@ -192,7 +192,7 @@ Categorecipe.create(recipe_id: 6, category_id: Category.find_by(name: "Végétar
 Categorecipe.create(recipe_id: 6, category_id: Category.find_by(name: "Plat").id)
 
 
-Recipe.create(title: "Hamburger Végétarien", time: 30, image_url: "https://image.afcdn.com/recipe/20160127/44502_w600.jpg")
+Recipe.create(title: "Hamburger Végétarien", timeprep: 15, timecook: 15, image_url: "https://image.afcdn.com/recipe/20160127/44502_w600.jpg")
 Recingredient.create(recipe_id: 7, ingredient_id: Ingredient.find_by(name: "Salade").id, quantity: "4 feuilles de")
 Recingredient.create(recipe_id: 7, ingredient_id: Ingredient.find_by(name: "Tomate(s)").id, quantity: "1")
 Recingredient.create(recipe_id: 7, ingredient_id: Ingredient.find_by(name: "Tranche(s) de fromage").id, quantity: "4")
@@ -212,7 +212,7 @@ Step.create(recipe_id: 7, description: "Vous pouvez ensuite composer vos hamburg
 Categorecipe.create(recipe_id: 7, category_id: Category.find_by(name: "Végétarien").id)
 Categorecipe.create(recipe_id: 7, category_id: Category.find_by(name: "Plat").id)
 
-Recipe.create(title: "Kouign-amann", time: 240, image_url: "https://les11gourmandes.files.wordpress.com/2015/03/gc3a2teau_kouign-amann.jpg")
+Recipe.create(title: "Kouign-amann", timeprep: 240, timecook: 35, image_url: "https://les11gourmandes.files.wordpress.com/2015/03/gc3a2teau_kouign-amann.jpg")
 Recingredient.create(recipe_id: 8, ingredient_id: Ingredient.find_by(name: "Farine").id, quantity: "250 g de")
 Recingredient.create(recipe_id: 8, ingredient_id: Ingredient.find_by(name: "Beurre").id, quantity: "250 g de")
 Recingredient.create(recipe_id: 8, ingredient_id: Ingredient.find_by(name: "Sucre").id, quantity: "200 g de")
