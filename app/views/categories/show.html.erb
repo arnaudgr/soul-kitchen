@@ -10,11 +10,27 @@
     </div>
 </div>
 
-<% @recipes.each do |u| %>
-	<a href="/recipe/<%= u.id %>">
-		<div class="col-6 card">
-			<%= u.title %>
-			<img src="<%= u.image_url %>" alt="<%= u.title %>" name="<%= u.title %> "/>
-		</div>
-	</a>
-<% end %>
+<div class="container">
+    <div class="section-heading">
+        <% @recipes.each do |u| %>
+            <% @reviews = Review.where(recipe_id: u.id).order("created_at DESC") %>
+            <% unless @reviews.present? %>
+                <% @avg_review = 0 %>
+            <% else %>
+                <% @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0%>
+            <% end %>
+            <a href="/recipe/<%= u.id %>">
+                <div class="cardcategory">
+                    <div>
+                        <%= u.title %>
+                    </div>
+                    <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                    <p></p>
+                    <div>
+                        <img src="<%= u.image_url %>" alt="<%= u.title %>" name="<%= u.title %> "/>
+                    </div>
+                </div>
+            </a>
+        <% end %>
+    </div>
+</div>

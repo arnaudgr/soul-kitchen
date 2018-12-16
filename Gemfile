@@ -25,10 +25,6 @@ gem 'popper_js', '~> 1.12.9'
 gem 'mailjet'
 gem 'twitter'
 
-
-gem 'httparty', '~> 0.13.7'
-
-
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
