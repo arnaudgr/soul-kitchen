@@ -1,5 +1,5 @@
 <!-- ##### Breadcumb Area Start ##### -->
-<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(<%= @recipe.image_url%>);">
     <div class="container h-100">
         <div class="row h-100 align-items-center">
             <div class="col-12">
@@ -19,9 +19,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="receipe-slider owl-carousel">
-                    <img src="img/bg-img/bg5.jpg" alt="">
-                    <img src="img/bg-img/bg5.jpg" alt="">
-                    <img src="img/bg-img/bg5.jpg" alt="">
+                    <img src="<%= @recipe.image_url %>" alt="<%= @recipe.title %>">
                 </div>
             </div>
         </div>
@@ -45,12 +43,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-12 text-center">
-            <img src="<%= @recipe.image_url %>" alt="<%= @recipe.title %>" name="<%= @recipe.title %> "/>
         </div>
     </div>
 

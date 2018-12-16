@@ -1,16 +1,32 @@
-<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(<%= asset_path 'recette6.jpg'%>);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12">
-                <div class="breadcumb-text text-center">
-                    <h2>Laisse un commentaire & un avis à la recette ! </h2>
+<% if params[:id] != nil %>
+
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(<%= asset_path 'recette6.jpg'%>);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Modifiez votre avis</h2>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+<% else %>
 
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(<%= asset_path 'recette6.jpg'%>);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Laissez un avis et une note à cette recette !</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<% end %>
 
 
 <div class="container h-100">
@@ -31,9 +47,8 @@
                     </div>
                   <% end %>
 
-                  <div class="field">
-                    <%= f.label :comment, "Votre commentaire" %><br>
-                    <%= f.text_area :comment, placeholder:"Votre Message", :cols=>"30", :rows =>"10", class:'form-control' %><br>
+                  <div class="field"><br>
+                    <%= f.text_area :comment, placeholder:"Votre avis", :cols=>"30", :rows =>"10", class:'form-control' %><br>
                   </div>
                     <p>Note </p>
                   <div class="field" style="margin-left: 2%;"  >

@@ -1,6 +1,4 @@
-<h1>Modification de mon commentaire</h1>
-
 <%= render 'form', review: @review %>
 
 <%= link_to 'Show', @recipe_review %> |
-<%= link_to 'Back', recipe_path %>
+<%= link_to 'Back', "/recipe/#{params[:recipe_id]}" %>
