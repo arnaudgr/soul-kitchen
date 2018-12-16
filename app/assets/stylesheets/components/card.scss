@@ -8,6 +8,18 @@
     padding: 20px;
 }
 
+.cardcategory {
+    box-shadow: 0 4px 8px 0 rgba(2,2,2,0.2);
+    transition: 0.3s;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    margin: 10px;
+    padding: 20px;
+}
+.cardcategory:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
 .card1
 {
   width: 400px;

@@ -1,146 +1,127 @@
-  
-
-
-      <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcumb-text text-center">
-                        <h2><%= @recipe.title %></h2>
-                    </div>
+<!-- ##### Breadcumb Area Start ##### -->
+<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/breadcumb3.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-text text-center">
+                    <h2><%= @recipe.title %></h2>
                 </div>
             </div>
         </div>
     </div>
-    <!-- ##### Breadcumb Area End ##### -->
+</div>
+<!-- ##### Breadcumb Area End ##### -->
 
-    <div class="receipe-post-area section-padding-80">
+<div class="receipe-post-area section-padding-80">
 
-        <!-- Receipe Slider -->
+    <!-- Receipe Slider -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="receipe-slider owl-carousel">
+                    <img src="img/bg-img/bg5.jpg" alt="">
+                    <img src="img/bg-img/bg5.jpg" alt="">
+                    <img src="img/bg-img/bg5.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Receipe Content Area -->
+    <div class="receipe-content-area">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="receipe-slider owl-carousel">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                        <img src="img/bg-img/bg5.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Receipe Content Area -->
-        <div class="receipe-content-area">
-            <div class="container">
-
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <div class="receipe-headline my-5">
-                            <span><%= @recipe.created_at %></span>
-                            <h2><%= @recipe.title %></h2>
-                            <div class="receipe-duration">
-                                <h6>Preparation : <%= @recipe.timeprep %> mn</h6>
-                                <h6>Cuisson : <%= @recipe.timecook %> mn </h6>
-                                <h6>Pour 4 personnes</h6>
-                            </div>
+                <div class="col-12 col-md-8">
+                    <div class="receipe-headline my-5">
+                        <span><%= @recipe.created_at %></span>
+                        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                        <em><%= "#{@reviews.length} avis" %></em>
+                        <h2><%= @recipe.title %></h2>
+                        <div class="receipe-duration">
+                            <h6>Préparation : <%= @recipe.timeprep %> mn</h6>
+                            <h6>Cuisson : <%= @recipe.timecook %> mn </h6>
+                            <h6>Pour 4 personnes</h6>
                         </div>
                     </div>
-
-                   
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 text-center">
-                        <img src="<%= @recipe.image_url %>" alt="<%= @recipe.title %>" name="<%= @recipe.title %> "/>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-12 col-lg-8">
-                        <% Step.where(recipe_id: params[:id]).each do |u| %>                        
-                        <!-- Single Preparation Step -->
-                            <div class="single-preparation-step d-flex">
-                                <h4><%= @i %></h4>
-                                <p><%= u.description %></p>
-                                <% @i += 1 %>
-                            </div>
-                        <% end %>
-                    </div>
-
-                    <!-- Ingredients -->
-                    <div class="col-12 col-lg-4">
-                        <div class="ingredients">
-                            <h4>Ingrédients</h4>
-
-                            <% Recingredient.where(recipe_id: params[:id]).each do |recin| %>
-                                <!-- Custom Checkbox -->
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck<%=@i%>">
-                                    <% @ingr << Ingredient.find(recin.ingredient_id).name %>
-                                    <label class="custom-control-label" for="customCheck<%=@i%>"><%= "#{recin.quantity} #{@ingr.last}" %></label>
-                                </div>
-                                <% @i += 1 %>
-                            <% end %>
-
-                        </div>
-                    </div>
-                </div>
-                            
-                            <!--################# SYSTEME REVIEW ##########--->
-                            <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="breadcumb-text text-center">
-
-                            <div class="star-rating" data-score= <%= @avg_review %> ></div>
-                            <em><%= "#{@reviews.length} reviews" %></em>
-                       
-                        <div class="contact-text">
-                         
-
-                          <% if @reviews.blank? %>
-                            
-                            <h3>Personne n'est encore passé par là, voulez vous déposer un commentaire </h3>
-                         <% else %>
-
-                         <% @reviews.each do |review| %>
-                   <div class="reviews">
-              <div class="star-rating" data-score=<%=review.rating%>></div>
-                <p><%= review.comment %></p>
-                
-                  
-                </div>
-
-                <% end %>
-                <% end %>
-
-                <%= link_to "Laisser un commentaire", new_recipe_review_path(@recipe), class: "btn delicious-btn" %>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <img src="<%= @recipe.image_url %>" alt="<%= @recipe.title %>" name="<%= @recipe.title %> "/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <% Step.where(recipe_id: params[:id]).each do |u| %>
+            <!-- Single Preparation Step -->
+                <div class="single-preparation-step d-flex">
+                    <h4><%= @i %></h4>
+                    <p><%= u.description %></p>
+                    <% @i += 1 %>
+                </div>
+            <% end %>
+        </div>
+
+        <!-- Ingredients -->
+        <div class="col-12 col-lg-4">
+            <div class="ingredients">
+                <h4>Ingrédients</h4>
+                <% Recingredient.where(recipe_id: params[:id]).each do |recin| %>
+                    <!-- Custom Checkbox -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck<%=@i%>">
+                        <% @ingr << Ingredient.find(recin.ingredient_id).name %>
+                        <label class="custom-control-label" for="customCheck<%=@i%>"><%= "#{recin.quantity} #{@ingr.last}" %></label>
+                    </div>
+                    <% @i += 1 %>
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+
+    <!--################# SYSTEME REVIEW ##########--->
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="breadcumb-text text-center">
+                    <div class="contact-text">
+                         
+                        <% if @reviews.blank? %>
+                            <h3>Soyez le premier à laisser un avis !</h3>
+                        <% else %>
+                            <% @reviews.each do |review| %>
+                                <div class="reviews">
+                                    <div class="star-rating" data-score=<%=review.rating%>></div>
+                                    <p><%= review.comment %></p>
+                                    <% if user_signed_in? %>
+                                        <% if review.user_id == current_user.id %>
+                                            <%= link_to "Modifier", edit_recipe_review_path(@recipe, review.id), class: "btn btn-secondary" %>
+                                        <% end %>
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        <% end %>
+                        <%= link_to "Laisser un avis", new_recipe_review_path(@recipe), class: "btn delicious-btn" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
-</div>
-
-
-
-
-
-
                 
-            <!-- link_to 'Edit', edit_recipe_path(@recipe), class: 'btn btn-primary' 
-             link_to "Back", recipe_path, class: "btn btn-secondary" 
-            -->
-          <script>
+            <!-- link_to "Back", recipe_path, class: "btn btn-secondary"-->
+<script>
     $('.star-rating').raty({
       path: '/assets/',
       readOnly: true,
       score: function() {
-            return $(this).attr('data-score=review.rating');
+        return $(this).attr('data-score=review.rating');
     }
   });
 </script>
