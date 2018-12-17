@@ -1,5 +1,9 @@
-<div class="card">
-	Bonjour, <%= current_user.email %> !
+<div class="container">
+	<div class="row">
+		<div class="card">
+			Bonjour, <%= current_user.email %> !
 
-	<p><%= link_to 'Editer mon profil', edit_user_registration_path %></p>
+			<p><%= link_to 'Éditer mon profil', edit_user_registration_path %></p>
+		</div>
+	</div>
 </div>
