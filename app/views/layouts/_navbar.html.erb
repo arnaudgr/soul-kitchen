@@ -58,6 +58,54 @@
                         <div class="classynav">
                             <ul>
                                 <li class="active"><%= link_to "Home",  root_path %> </li>
+
+                                <li><a href="#">Nos recettes par catégories</a>
+                                        <div class="megamenu">
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Régime</li>
+                                                <li><a href="/categories/1">Végétarien</a></li>
+                                                <li><a href="/categories/2">Carnivore</a></li>
+                                                <li><a href="/categories/3">Végan</a></li>
+                                                <li><a href="/categories/4">Piscivore</a></li>
+                                                <li><a href="/categories/14">Sans gluten</a></li>
+                                                <li><a href="/categories/15">Sans lactose</a></li>
+                                                <li><a href="/categories/5">Sucré</a></li>
+                                                <li><a href="/categories/6">Salé</a></li>
+                                                <li><a href="/categories/7">Sucré-salé</a></li>
+                                                <li><a href="/categories/16">Avec fromage</a></li>
+                                                <li><a href="/categories/17">Avec alcool</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Culture</li>
+                                                <li><a href="/categories/18">Américain</a></li>
+                                                <li><a href="/categories/19">Anglais</a></li>
+                                                <li><a href="/categories/20">Chinois</a></li>
+                                                <li><a href="/categories/21">Espagnol</a></li>
+                                                <li><a href="/categories/22">Français</a></li>
+                                                <li><a href="/categories/24">Indien</a></li>
+                                                <li><a href="/categories/23">Italien</a></li>
+                                                <li><a href="/categories/25">Japonais</a></li>
+                                                <li><a href="/categories/26">Scandinave</a></li>
+                                                <li><a href="/categories/27">Portugais</a></li>
+                                                <li><a href="/categories/28">Tex-mex</a></li>
+                                            </ul>
+                                            <ul class="single-mega cn-col-4">
+                                                <li class="title">Menu</li>
+                                                <li><a href="/categories/8">Apéritif</a></li>
+                                                <li><a href="/categories/13">Amuse-gueule</a></li>
+                                                <li><a href="/categories/9">Entrée</a></li>
+                                                <li><a href="/categories/10">Plat</a></li>
+                                                <li><a href="/categories/11">Dessert</a></li>
+                                                <li><a href="/categories/12">Soupe</a></li>
+                                            </ul>
+                                            <div class="single-mega cn-col-4">
+                                                <div class="receipe-slider owl-carousel">
+                                                    <a href="#"><img src="img/bg-img/bg1.jpg" alt=""></a>
+                                                    <a href="#"><img src="img/bg-img/bg6.jpg" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
                                     
                                 <% if user_signed_in? %>
                                     <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
@@ -98,3 +146,7 @@
     </div>
 </header>
 <!-- ##### Header Area End ##### -->
+<br />
+<br />
+<br />
+<br />

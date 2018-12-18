@@ -1,27 +1,28 @@
  <div class="receipe-post-area section-padding-80">
 
-        <!-- Receipe Post Search -->
-        <div class="receipe-post-search mb-80">
-            <div class="container">
-                <form action="/categories/:id" method="get">
-                    <div class="row">
-                        <div class="col-12 col-lg-3">
-                            Choisissez une catégorie
-                            <select name="select_category" id="select_category">
-                                <% @i = 1 %>
-                                <% Category.all.each do |u| %>
-                                    <option value="<%= @i %>"><%= u.name %></option>
-                                    <% @i += 1 %>
-                                <% end %>
-                            </select>
-                        </div>
+    <!-- Receipe Post Search -->
+    <div class="receipe-post-search mb-80">
+        <div class="container">
+            <form action="/categories/:id" method="get">
+                <div class="row">
+                    <div class="col-12 col-lg-3">
+                        Choisissez une catégorie
+                        <select name="select_category" id="select_category">
+                            <% @i = 1 %>
+                            <% Category.all.each do |u| %>
+                                <option value="<%= @i %>"><%= u.name %></option>
+                                <% @i += 1 %>
+                            <% end %>
+                        </select>
+                    </div>                 
                         
-                        
-                        <div class="col-12 col-lg-3 text-right">
-                            <br />
-                            <button type="submit" class="btn delicious-btn">Rechercher</button>
-                        </div>
+                    <div class="col-12 col-lg-3 text-right">
+                        <br />
+                        <button type="submit" class="btn delicious-btn">Rechercher</button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
+    </div>
+
+</div>
