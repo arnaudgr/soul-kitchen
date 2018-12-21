@@ -1,0 +1,15 @@
+<div class="search-wrappper">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="formm" ><div class="innput"><div class="trouver">Trouver une recette</div></div></div>
+                <%= form_tag(search_path, method: "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "  Cherchez une recette", class: "innput" %>
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+</div>

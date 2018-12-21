@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	root "recipe#index"
 	get '/recipe/add_ing/:quantity/:name', to: 'recipe#add_ingredient'
 	get '/recipe/add_step/:description', to: 'recipe#add_step'
+	get "search", to: "recipe#search"
 
 
 	patch '/recipe', to: 'recipe#realcreate'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 	resources :subscribers
 	resources :messages
 	resources :recipe do
-  	resources :reviews, except: [:show, :index]
+  resources :reviews, except: [:show, :index]
   end
 	
 	

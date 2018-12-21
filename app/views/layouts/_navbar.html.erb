@@ -1,4 +1,27 @@
-<header>
+<!-- Preloader -->
+<!-- <div id="preloader">
+    <i class="circle-preloader"></i>
+    <img src="/assets/salad.png" alt="">
+</div> -->
+
+<!-- Search Wrapper -->
+<div class="search-wrapper">
+    <!-- Close Btn -->
+    <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <%= form_tag(search_path, method: "get", id: "search-form") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Cherchez une recette", class: "innput" %>
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="header-area">
 
     <div class="top-header-area">
         <div class="container h-100">
@@ -39,7 +62,7 @@
                 <nav class="classy-navbar justify-content-between" id="deliciousNav">
 
                     <!-- Logo -->
-                    <a class="nav-brand" href="/"> <%=image_tag 'soullogo.png', :height => '200', :width => '200'%> </a>
+                    <a class="nav-brand" href="/"> <%= image_tag "soullogo.png", :height => '190', :width => '190' %> </a>
 
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
@@ -49,7 +72,7 @@
                     <!-- Menu -->
                     <div class="classy-menu">
 
-                        <!-- close btn -->
+                        <!-- close btn  --> <!-- à quoi ça sert ? -->
                         <div class="classycloseIcon">
                             <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                         </div>
@@ -57,89 +80,132 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><%= link_to "Home",  root_path %> </li>
-
-                                <li><a href="#">Nos recettes par catégories</a>
-                                        <div class="megamenu">
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Régime</li>
-                                                <li><a href="/categories/1">Végétarien</a></li>
-                                                <li><a href="/categories/2">Carnivore</a></li>
-                                                <li><a href="/categories/3">Végan</a></li>
-                                                <li><a href="/categories/4">Piscivore</a></li>
-                                                <li><a href="/categories/14">Sans gluten</a></li>
-                                                <li><a href="/categories/15">Sans lactose</a></li>
-                                                <li><a href="/categories/5">Sucré</a></li>
-                                                <li><a href="/categories/6">Salé</a></li>
-                                                <li><a href="/categories/7">Sucré-salé</a></li>
-                                                <li><a href="/categories/16">Avec fromage</a></li>
-                                                <li><a href="/categories/17">Avec alcool</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Culture</li>
-                                                <li><a href="/categories/18">Américain</a></li>
-                                                <li><a href="/categories/19">Anglais</a></li>
-                                                <li><a href="/categories/20">Chinois</a></li>
-                                                <li><a href="/categories/21">Espagnol</a></li>
-                                                <li><a href="/categories/22">Français</a></li>
-                                                <li><a href="/categories/24">Indien</a></li>
-                                                <li><a href="/categories/23">Italien</a></li>
-                                                <li><a href="/categories/25">Japonais</a></li>
-                                                <li><a href="/categories/26">Scandinave</a></li>
-                                                <li><a href="/categories/27">Portugais</a></li>
-                                                <li><a href="/categories/28">Tex-mex</a></li>
-                                            </ul>
-                                            <ul class="single-mega cn-col-4">
-                                                <li class="title">Menu</li>
-                                                <li><a href="/categories/8">Apéritif</a></li>
-                                                <li><a href="/categories/13">Amuse-gueule</a></li>
-                                                <li><a href="/categories/9">Entrée</a></li>
-                                                <li><a href="/categories/10">Plat</a></li>
-                                                <li><a href="/categories/11">Dessert</a></li>
-                                                <li><a href="/categories/12">Soupe</a></li>
-                                            </ul>
-                                            <div class="single-mega cn-col-4">
-                                                <div class="receipe-slider owl-carousel">
-                                                    <a href="#"><img src="img/bg-img/bg1.jpg" alt=""></a>
-                                                    <a href="#"><img src="img/bg-img/bg6.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <% if current_page?(root_path) %>
+                                    <li class="active">
+                                        <%= link_to "Home", root_path %>
                                     </li>
+                                <% else %>
+                                    <li>
+                                        <%= link_to "Home", root_path %>
+                                    </li>
+                                <% end %>
+                                <% if params[:id] != nil %>
+                                    <% if current_page?(category_path) %>
+                                        <li class="active"><a href="#">Nos recettes par catégories</a>
+                                    <% else %>
+                                        <li><a href="#">Nos recettes par catégories</a>
+                                    <% end %>
+                                <% else %>
+                                    <li><a href="#">Nos recettes par catégories</a>
+                                <% end %>
+                                    <div class="megamenu">
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Régime</li>
+                                            <li><a href="/categories/1">Végétarien</a></li>
+                                            <li><a href="/categories/2">Carnivore</a></li>
+                                            <li><a href="/categories/3">Végan</a></li>
+                                            <li><a href="/categories/4">Piscivore</a></li>
+                                            <li><a href="/categories/14">Sans gluten</a></li>
+                                            <li><a href="/categories/15">Sans lactose</a></li>
+                                            <li><a href="/categories/5">Sucré</a></li>
+                                            <li><a href="/categories/6">Salé</a></li>
+                                            <li><a href="/categories/7">Sucré-salé</a></li>
+                                            <li><a href="/categories/16">Avec fromage</a></li>
+                                            <li><a href="/categories/17">Avec alcool</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Culture</li>
+                                            <li><a href="/categories/18">Américain</a></li>
+                                            <li><a href="/categories/19">Anglais</a></li>
+                                            <li><a href="/categories/20">Chinois</a></li>
+                                            <li><a href="/categories/21">Espagnol</a></li>
+                                            <li><a href="/categories/22">Français</a></li>
+                                            <li><a href="/categories/24">Indien</a></li>
+                                            <li><a href="/categories/23">Italien</a></li>
+                                            <li><a href="/categories/25">Japonais</a></li>
+                                            <li><a href="/categories/26">Scandinave</a></li>
+                                            <li><a href="/categories/27">Portugais</a></li>
+                                            <li><a href="/categories/28">Tex-mex</a></li>
+                                        </ul>
+                                        <ul class="single-mega cn-col-4">
+                                            <li class="title">Menu</li>
+                                            <li><a href="/categories/8">Apéritif</a></li>
+                                            <li><a href="/categories/13">Amuse-gueule</a></li>
+                                            <li><a href="/categories/9">Entrée</a></li>
+                                            <li><a href="/categories/10">Plat</a></li>
+                                            <li><a href="/categories/11">Dessert</a></li>
+                                            <li><a href="/categories/12">Soupe</a></li>
+                                        </ul>
+                                        <!-- petit caroussel dans ce dropdown -->
+                                        <!-- <div class="single-mega cn-col-4">
+                                            <div class="receipe-slider owl-carousel">
+                                                <a href="#"><img src="assets/bg4.jpg" alt=""></a>
+                                                <a href="#"><img src="assets/insta2.jpg" alt=""></a>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </li>
                                     
                                 <% if user_signed_in? %>
-                                    <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
-                                    <li> <%= link_to("Proposer une recette", new_recipe_path ) %> </li>
-                                <% else %>
-                                    <li> <%= link_to "Se connecter", new_user_session_path%> </li>
-                                    <li> <%= link_to "S'inscrire", new_user_registration_path%> </li>
-                                <% end %>
-                                      
-                                <li><%= link_to("Nous contacter", new_message_path ) %></li>
-                            </ul>
-
-                            <div class="cn-dropdown-item has-down">
-                                <img  onclick="myFunction()" class="dropbtn" class="rounded-circle" height="25px" width="25px" <%= image_tag ("user.png") %>> 
-                                <div id="myDropdown" class="dropdown-content" >
-                                    <% unless user_signed_in? %>
-                                      <li class="dropdown">
-                                        <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
-                                      </li>
-                                      <li class="dropdown">
-                                        <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
-                                      </li>
+                                    <% if params[:id] != nil %>
+                                        <% if current_page?(user_path) %>
+                                            <li class="active"> <%= link_to "Profil", user_path(current_user.id)  %> </li>
+                                        <% else %>
+                                            <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
+                                        <% end %>
                                     <% else %>
-                                      <div class="dropdown" >
-                                        <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %>
-                                      </div>
-                                      <div class="dropdown" >
-                                        <%= link_to("Proposer une recette", new_recipe_path ) %>
-                                      </div>
+                                        <li> <%= link_to "Profil", user_path(current_user.id)  %> </li>
                                     <% end %>
-                                </div>
-                            </div>
-                        <!-- Nav End -->
+                                    <% if current_page?(new_recipe_path) %>
+                                        <li class="active"> <%= link_to "Proposer une recette", new_recipe_path %> </li>
+                                    <% else %>
+                                        <li> <%= link_to "Proposer une recette", new_recipe_path %> </li>
+                                    <% end %>
+                                <% else %>
+                                    <% if current_page?(new_user_session_path) %>
+                                        <li class="active"> <%= link_to "Se connecter", new_user_session_path %> </li>
+                                        <li> <%= link_to "S'inscrire", new_user_registration_path %> </li>
+                                    <% elsif current_page?(new_user_registration_path) %>
+                                        <li> <%= link_to "Se connecter", new_user_session_path %> </li>
+                                        <li class="active"> <%= link_to "S'inscrire", new_user_registration_path %> </li>
+                                    <% else %>
+                                        <li> <%= link_to "Se connecter", new_user_session_path %> </li>
+                                        <li> <%= link_to "S'inscrire", new_user_registration_path %> </li>
+                                    <% end %>
+                                <% end %>
+                                
+                                <% if current_page?(new_message_path) %>
+                                    <li class="active"><%= link_to "Nous contacter", new_message_path %></li>
+                                <% else %>
+                                    <li><%= link_to "Nous contacter", new_message_path %></li>
+                                <% end %>
+
+                                <li class="cn-dropdown-item">
+                                    <img  onclick="functionDropdown()" class="dropbtn rounded-circle mr-0" height="25px" width="25px" src="/assets/user.png" alt="user">
+                                    <div id="myDropdown" class="dropdown-content">
+                                        <% if user_signed_in? %>
+                                          <div class="dropdown">
+                                            <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                                            <%= link_to "Proposer une recette", new_recipe_path, class: "nav-link" %>
+                                          </div>
+                                        <% else %>
+                                          <div class="dropdown">
+                                            <%= link_to "Se connecter", new_user_session_path, class: "nav-link" %>
+                                            <%= link_to "S'inscrire", new_user_registration_path, class: "nav-link" %>
+                                          </div>
+                                        <% end %>
+                                    </div>
+                                </li>
+
+                                <li class="search-btn ml-15">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </li>
+                            </ul>
+                            
+                        </div>    
                     </div>
+                    <!-- Nav End -->
+
                 </nav>
             </div>
         </div>
