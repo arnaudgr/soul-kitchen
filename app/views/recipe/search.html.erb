@@ -1,50 +1,54 @@
-<% if @recipes.blank? && @recipes2.blank? %>
-  <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/breadcumb3.jpg);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12">
-                <div class="breadcumb-text text-center">
-                    <h2>Il n'y a pas de recette contenant <%= params[:search] %>.</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<% else %>
-<div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/breadcumb3.jpg);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-            <div class="col-12">
-                <div class="breadcumb-text text-center">
-                    <h2>Vous recherchez : <%= params[:search] %></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<% end %>
+<% if @recipes.blank? || params[:search] == "" || params[:search] == " " %>
 
-<div class="container">
-    <div class="section-heading">
-        <% @recipes.each do |u| %>
-            <% @reviews = Review.where(recipe_id: u.id).order("created_at DESC") %>
-            <% unless @reviews.present? %>
-                <% @avg_review = 0 %>
-            <% else %>
-                <% @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0%>
-            <% end %>
-            <a href="/recipe/<%= u.id %>">
-                <div class="cardcategory">
-                    <div>
-                        <%= u.title %>
-                    </div>
-                    <div class="star-rating" data-score= <%= @avg_review %> ></div>
-                    <p></p>
-                    <div>
-                        <img src="<%= u.image_url %>" alt="<%= u.title %>" name="<%= u.title %> "/>
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/breadcumb3.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Il n'y a pas de recette contenant <%= params[:search] %>.</h2>
                     </div>
                 </div>
-            </a>
-        <% end %>
+            </div>
+        </div>
     </div>
-</div>
+
+<% else %>
+
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(/assets/breadcumb3.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcumb-text text-center">
+                        <h2>Vous recherchez : <%= params[:search] %></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section-heading">
+            <% @recipes.each do |u| %>
+                <% @reviews = Review.where(recipe_id: u.id).order("created_at DESC") %>
+                <% unless @reviews.present? %>
+                    <% @avg_review = 0 %>
+                <% else %>
+                    <% @avg_review = @reviews.average(:rating).present? ? @reviews.average(:rating).round(2) : 0%>
+                <% end %>
+                <a href="/recipe/<%= u.id %>">
+                    <div class="cardcategory">
+                        <div>
+                            <%= u.title %>
+                        </div>
+                        <div class="star-rating" data-score= <%= @avg_review %> ></div>
+                        <p></p>
+                        <div>
+                            <img src="<%= u.image_url %>" alt="<%= u.title %>" name="<%= u.title %> "/>
+                        </div>
+                    </div>
+                </a>
+            <% end %>
+        </div>
+    </div>
+
+<% end %>

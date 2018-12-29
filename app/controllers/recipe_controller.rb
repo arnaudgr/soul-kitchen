@@ -106,22 +106,22 @@ class RecipeController < ApplicationController
   end
 
   def search
+    
     @recipes1 = Recipe.all
-    @steps = Step.all
-    @recipes2 = []
+    @recipes = []
     if params[:search]
-      @recipes1 = Recipe.search(params[:search]).order("created_at DESC") + Recipe.search(params[:search].capitalize).order("created_at DESC") + Recipe.search(params[:search].downcase).order("created_at DESC")
-      @steps = Step.search(params[:search]).order("created_at DESC") + Step.search(params[:search].downcase).order("created_at DESC") + Step.search(params[:search].capitalize).order("created_at DESC")
-      @steps.each do |u|
-        @recipes2 << Recipe.find_by(id: u.recipe_id)
+      params[:search].split.each do |s|
+        @recipes1 = Recipe.search(s).order("created_at DESC") + Recipe.search(s.capitalize).order("created_at DESC") + Recipe.search(s.downcase).order("created_at DESC")
+        @recipes1.each do |ss|
+          @recipes << ss
+        end
       end
     else
       @recipes1 = Recipe.all.order("created_at DESC")
       @steps = Step.all.order("created_at DESC")
     end
-
-    @recipes = @recipes1 + @recipes2
     @recipes = @recipes.uniq
+
   end
  
 

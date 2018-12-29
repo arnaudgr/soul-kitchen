@@ -732,11 +732,6 @@ textarea:focus {
     z-index: 100; }
   .search-wrapper.on {
     top: 0; }
-      .trouver {
-        margin-left: 100px;
-        color: white;
-        font-weight: bold;
-        text-shadow: 5px 5px 5px black; }
 .search-wrappper {
   width: 100%;
   height: 240px;
@@ -754,6 +749,11 @@ textarea:focus {
       font-size: 20px;
       font-style: italic;
       padding-top: 30px; }
+      .trouver {
+        margin-left: 100px;
+        color: white;
+        font-weight: bold;
+        text-shadow: 5px 5px 5px black; }
   .search-wrappper form {
     position: relative;
     z-index: 1; }
